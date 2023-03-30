@@ -1,12 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logoImg from '../logo.png';
+import logo from '../culturelog.png'
 import styled from 'styled-components';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { logoutUser } from '../actions/user_action';
 import { Cookies } from 'react-cookie';
+
 
 // styled componets 설정은 함수 밖에서 해야 콘솔 창에 경고 메시지가 출력이 안된다.
 const Nav = styled.nav`
@@ -17,13 +19,13 @@ const Nav = styled.nav`
     height: 80px;
   }
   p {
-    color: '#b1bd96';
-    margin-top: 30px;
+    color: '#2e2e2e';
+    margin-top: 17px;
   }
 `;
 
 export default function Header() {
-  const imgStyle = { width: '128px', marginLeft: '10px', marginTop: '10px' };
+  const imgStyle = { width: '160px', height:'40px', marginTop: '22px', marginRight:'700px'};
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -58,33 +60,20 @@ export default function Header() {
           }}
         >
           <li>
-            {' '}
-            <Link to="/" style={{ textDecoration: 'none' }}>
-              <p
-                style={{
-                  fontSize: '27px',
-                  fontWeight: '600',
-                  color: '#b1bd96',
-                }}
-              >
-                HOME
-              </p>
-            </Link>
-          </li>
-          <li>
             <Link to="/">
-              <img src={logoImg} alt="로고" style={imgStyle}></img>
+              <img src={logo} alt="로고" style={imgStyle}></img>
             </Link>
           </li>
+
           {/* 로그인 여부에 따라 나오는 버튼 구현 */}
           {cookies.get('x_auth') ? (
             <li className="Header_logout">
               <Link to="/home" style={{ textDecoration: 'none' }}>
                 <p
                   style={{
-                    fontSize: '27px',
+                    fontSize: '25px',
                     fontWeight: '600',
-                    color: '#b1bd96',
+                    color: '#2e2e2e',
                   }}
                   onClick={onClickHandler}
                 >
@@ -97,34 +86,18 @@ export default function Header() {
               <Link to="/login" style={{ textDecoration: 'none' }}>
                 <p
                   style={{
-                    fontSize: '30px',
-                    fontWeight: '700',
-                    color: '#b1bd96',
+                    fontSize: '25px',
+                    fontWeight: '600',
+                    color: '#2e2e2e',
                   }}
                 >
-                  LOGIN
+                  LOG-IN
                 </p>
               </Link>
             </li>
           )}
         </ul>
       </Nav>
-      <div
-        style={{
-          width: '100%',
-          alignItems: 'center',
-          display: 'flex',
-          justifyContent: 'center',
-        }}
-      >
-        <hr
-          style={{
-            width: '90%',
-            borderTop: '3px double #abd4c9',
-            marginTop: '25px',
-          }}
-        ></hr>
-      </div>
     </>
   );
 }

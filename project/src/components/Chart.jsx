@@ -34,13 +34,13 @@ export default function Chart({ movie, book, perfo, innerWidth }) {
       }}
     >
       <LineChart
-        width={innerWidth - 200}
+        width={innerWidth - 800}
         height={300}
         data={data}
         margin={{
           top: 5,
-          right: 30,
-          left: 20,
+          right: 60,
+          left: 0,
           bottom: 5,
         }}
       >

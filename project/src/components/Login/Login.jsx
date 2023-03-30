@@ -8,6 +8,7 @@ import Auth from '../../hoc/auth';
 import { socketUserLogin } from '../../actions/socket_action';
 import { useCookies } from 'react-cookie';
 import moment from 'moment';
+import logo2 from '../../culturelog2.png'
 
 const Div1 = styled.div`
   margin: auto;
@@ -107,7 +108,10 @@ function Login() {
   };
 
   return (
-    <>
+    <div className="grid-cols-2">
+      <div className="col-start-1 col-end-2">
+      <img src={logo2}></img></div>
+      <div className='col-end-2'>
       <Form onSubmit={onSubmitHandler}>
         <Div1>
           <h1>LOGIN</h1>
@@ -127,7 +131,9 @@ function Login() {
           </Div2>
         </Div1>
       </Form>
-    </>
+      </div>
+      </div>
+   
   );
 }
 export default Auth(Login, null);

@@ -15,6 +15,7 @@ import ChartPerson from './ChartPerson';
 import './Homeyeong.css';
 import './Home.css';
 
+
 const P = styled.p`
   display: flex;
   font-size: 16px;
@@ -200,6 +201,7 @@ function Home() {
           </Row>
         </Col>
       </Row>
+      
     </Container>
   );
 }
