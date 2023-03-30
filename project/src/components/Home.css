@@ -1,0 +1,112 @@
+div.container-fluid {
+  height: 83vh;
+}
+
+div.row {
+  margin: 0px;
+}
+
+#tempImg {
+  width: 100%;
+  height: 100%;
+}
+
+/* 달력 Footer */
+.calendarFooter {
+  font-size: 0.8rem;
+  text-align: left;
+}
+
+/* 올해의 기록 */
+.recordYearCol {
+  padding: 95px 0px 0px 50px;
+}
+
+.recordYear {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.recordYearTitle {
+  width: 190px;
+  height: 40px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  background-color: #bbd2e3;
+  text-align: center;
+}
+
+.recordYearSubTitle {
+  font-size: 1.2rem;
+  font-weight: 550;
+}
+
+.recordYear:nth-child(2) {
+  margin-top: 30px;
+}
+
+hr {
+  opacity: 1;
+  position: relative;
+  top: -10px;
+}
+
+/* 오른쪽 Title */
+.secondTitle {
+  height: 33%;
+  padding: 0px;
+  text-align: center;
+}
+
+
+@media (min-width: 768px) and (max-width: 1050px) {
+  .secondTitle > div > span:nth-child(1) {
+    font-size: 18px !important;
+  }
+  .secondTitle > div:nth-child(1) {
+    padding-left: 0px !important;
+  }
+  .recordYearTitle {
+    font-size: 1.2rem;
+  }
+  .recordYearSubTitle {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container-fluid > div.row:nth-child(1) {
+    margin: 50px 0px 0px !important;
+  }
+  .secondTitle {
+   /* height: 25%;  */
+   height: auto; 
+  }
+  .secondTitle > div:nth-child(1) {
+    padding-left: 0px !important;
+  }
+  .secondTitle > div:nth-child(1) > span {
+    font-size: 17.5px !important;
+  }
+  .secondTitle > p:nth-child(2) {
+    padding-left: 0px;
+    /* height: 180px; */
+    margin-bottom: 0px;
+  }
+  .recordYearCol {
+    padding: 50px 0px 100px;
+  }
+  .recharts-wrapper {
+    left: -20px;
+  }
+  .recharts-legend-wrapper {
+    left: 50px !important;
+  }
+  .recordYearTitle {
+    font-size: 1.3rem;
+  }
+  .recordYearSubTitle {
+    font-size: 1rem;
+  }
+}

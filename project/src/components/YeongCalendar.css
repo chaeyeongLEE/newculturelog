@@ -1,0 +1,207 @@
+
+.react-calendar {
+  width: 1000px;
+ max-width: 100%;
+ height: 620px;
+ background-color: #e0e0c9;
+ box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+ color: #222;
+ border-radius: 30px;
+ 
+ font-family: Arial, Helvetica, sans-serif;
+ line-height: 5.125em;
+ text-align: justify;
+}
+.react-calendar--doubleView {
+  width: 700px;
+}
+.react-calendar--doubleView .react-calendar__viewContainer {
+  display: flex;
+  margin: -0.5em;
+}
+.react-calendar--doubleView .react-calendar__viewContainer > * {
+  width: 50%;
+  margin: 0.5em;
+}
+.react-calendar,
+.react-calendar *,
+.react-calendar *:before,
+.react-calendar *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.react-calendar button {
+  margin: 0;
+  border: 0;
+  outline: none;
+}
+.react-calendar button:enabled:hover {
+  cursor: pointer;
+}
+.react-calendar__navigation {
+  display: flex;
+  height: 44px;
+  margin-bottom: 1em;
+}
+.react-calendar__navigation button {
+  min-width: 44px;
+  background: none;
+}
+.react-calendar__navigation button:disabled {
+  background-color: #e1e0c8;
+}
+.react-calendar__navigation button:enabled:hover,
+.react-calendar__navigation button:enabled:focus {
+  background-color:#e1e0c8;
+}
+.react-calendar__month-view__weekdays {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.75em;
+}
+.react-calendar__month-view__weekdays__weekday {
+  padding: 0.5em;
+}
+.react-calendar__month-view__weekNumbers .react-calendar__tile {
+  display: flex;
+  justify-content: center;
+  font-size: 0.75em;
+  font-weight: bold;
+}
+.react-calendar__month-view__days__day--weekend {
+  color: #d10000;
+}
+.react-calendar__month-view__days__day--neighboringMonth {
+  color: #757575;
+}
+.react-calendar__year-view .react-calendar__tile,
+.react-calendar__decade-view .react-calendar__tile,
+.react-calendar__century-view .react-calendar__tile {
+  padding: 2em 0.5em;
+}
+.react-calendar__tile {
+  max-width: 100%;
+  padding: 15px 6px;
+  background: none;
+  text-align: center;
+  align-content: center;
+  line-height: 45px;
+}
+.react-calendar__tile:disabled {
+  background-color: #f0f0f0;
+}
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+  background-color: #c1a7a7;
+  border-radius: 50%;
+} 
+
+/*오늘의 날짜*/
+.react-calendar__tile--now {
+  background: #ccc9c8;
+  border-radius: 19px;
+}
+.react-calendar__tile--now:enabled:hover,
+.react-calendar__tile--now:enabled:focus {
+  background: #ca9b82;
+}
+.react-calendar__tile--hasActive {
+  background: #dbcae4;
+}
+.react-calendar__tile--hasActive:enabled:hover,
+.react-calendar__tile--hasActive:enabled:focus {
+  background: #d0d9e3;
+}
+
+/*클릭되어있는날짜*/
+.react-calendar__tile--active {
+  background:rgb(138 164 203 / 43%);
+  color: rgb(2, 2, 2);
+  border-radius: 50%;
+}
+.react-calendar__tile--active:enabled:hover,
+.react-calendar__tile--active:enabled:focus {
+  background: rgb(106, 124, 152);
+}
+.react-calendar--selectRange .react-calendar__tile--hover {
+  background-color: #e6e6e6;
+}
+
+
+.highlight {
+  margin: 0 auto;
+  width: 100px;
+  height: 80px;
+  border-radius:50%;
+  background: rgb(157 175 144);
+}
+/* .highlightBook {
+  width: 5px;
+  border-radius: 15px;
+  border-color: #426d90;
+  background: #426d90;
+}
+.highlightMovie {
+  width: 5px;
+  border-radius: 15px;
+  border-color: #2f632f;
+  background: #2f632f;
+}
+.highlightPerfo {
+  width: 5px;
+  border-radius: 15px;
+  border-color: #4e2f63;
+  background: #4e2f63;
+} */
+
+.dot {
+  height: 8px;
+  width: 8px;
+  /* background-color: #f87171; */
+  border-radius: 50%;
+  display: inline-flex;
+  margin-right: 5px;
+  margin-left: 3px;
+  margin-bottom: 40px;
+
+}
+.dotBook {
+  border-color: #426d90;
+  background: #426d90;
+}
+.dotMovie {
+  border-color:  rgb(242, 235, 98);
+  background: rgb(242, 235, 98);
+}
+.dotPerfo {
+  border-color: rgb(230, 48, 114);
+  background: rgb(230, 48, 114);
+}
+
+  @media (min-width: 768px) and (max-width: 815px) {
+    .react-calendar__tile {
+      font-size: 0.9rem;
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+  }
+  
+  
+  @media (max-width: 600px) {
+    .dot {
+      margin-right: 0px !important;
+    }
+    .dotResponsive {
+      margin-right: 5px !important;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .react-calendar__tile {
+      font-size: 0.9rem;
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+  }

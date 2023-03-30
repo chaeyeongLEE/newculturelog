@@ -1,0 +1,122 @@
+/* 방 목록 기본 베이스 */
+.chatRoomWindowAreaWrap > div:nth-child(1) {
+  height: 468px;
+  padding: 0px 12px 5px;
+  overflow: auto;
+}
+.chatRoomWindowAreaWrap {
+  background-color: #BACEE0 !important;
+  /* background-color: #fff !important; */
+}
+
+/* 방 목록 */
+.chatRoomList {
+ background-color: #f6f4f4;
+ margin: 6px 0px !important;
+}
+
+.chatRoomList > div:nth-child(1) {
+  padding: 5px;
+  cursor: default;
+  background-color: white;
+}
+
+.chatRoomList:hover {
+  background-color: red;
+}
+
+.chatRoomList > div:nth-child(1):hover {
+  background-color: #f9edd8;
+}
+
+
+.chatRoomListContent {
+  background-color: white;
+  font-weight: 400;
+  margin: 0px;
+  overflow: hidden;
+  white-space: normal;
+  font-size: 0.7rem;
+  max-height: 33px;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+
+
+
+
+.offcanvas {
+  top: auto !important;
+  left: auto !important;
+  bottom: 50px;
+  right: 50px;
+  width: 352px !important;
+  height: 500px;
+  border: 1px solid black;
+}
+
+.offcanvas-header {
+  height: 30px;
+  padding: 0px;
+  padding-right: 15px;
+  justify-content: flex-end;
+  background-color: #BACEE0;
+}
+
+.offcanvas-header > button {
+  height: 30px;
+  padding: 0px !important;
+  font-size: 0.7rem;
+}
+
+.offcanvas-body {
+  width: 350px;
+  padding: 0px;
+}
+
+
+@media (max-width: 767px) {
+  .offcanvas {
+  right: 15px;
+  bottom: 10px;
+  }
+}
+
+.roomEmptyMessage {
+  text-align: center;
+}
+
+#roomMouseRightClickWrap {
+  position: fixed;
+  z-index: 50;
+  align-items: center;
+  justify-content: center;
+  background-color: #d3d3d3;
+  font-size: 0.85rem;
+  width: 100px;
+  height: 30px;
+  text-align: center;
+  font-weight: 700;
+}
+
+#roomMouseRightClickWrap > ul > li:hover {
+  color: white; 
+  background-color: #6e6e6e;
+}
+
+.chatRoomMessageCount {
+  font-size: 0.7rem;
+  background-color: #e95f5f;
+  font-weight: 500;
+  color: white;
+  width: 20px;
+  text-align: center;
+  border-radius: 50%;
+}
+
+.chatRoomMessageCountZero {
+  visibility: hidden;
+}
