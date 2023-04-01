@@ -8,7 +8,7 @@ import Auth from '../../hoc/auth';
 import { socketUserLogin } from '../../actions/socket_action';
 import { useCookies } from 'react-cookie';
 import moment from 'moment';
-import logo2 from '../../culturelog2.png'
+import logo2 from '../../logo2.png'
 
 const Div1 = styled.div`
   margin: auto;
@@ -24,7 +24,7 @@ const Div1 = styled.div`
   h1 {
     font-weight: 700;
     font-size: 40px;
-    color: #cecc7f;
+    color: #31383C;
     margin-bottom: 30px;
   }
 `;
@@ -52,7 +52,7 @@ const Div2 = styled.div`
   width: 100%;
   align-items: center;
   button {
-    background-color: #cecc7f;
+    background-color: #31383C;
     color: #f3e9e9;
     border-radius: 4px;
     border-color: #cecc7f;
@@ -108,22 +108,20 @@ function Login() {
   };
 
   return (
-    <div className="grid-cols-2">
+  
+    /*<div className="grid-cols-2">
       <div className="col-start-1 col-end-2">
       <img src={logo2}></img></div>
       <div className='col-end-2'>
       <Form onSubmit={onSubmitHandler}>
         <Div1>
-          <h1>LOGIN</h1>
-          <label style={{ fontSize: '1.3rem' }}>ID</label>
-          <Input type="text" value={Email} onChange={onEmailHandler} />
-          <label style={{ fontSize: '1.3rem', marginTop: '20px' }}>
-            Password
-          </label>
+          <h1>LOG-IN</h1>
+          <Input type="text" value={Email} onChange={onEmailHandler} placeholder="Id" />
           <Input
             type="password"
             value={Password}
             onChange={onPasswordHandler}
+            placeholder="PASSWORD"
           />
           <Div2>
             <button type="submit">로그인</button>
@@ -132,8 +130,29 @@ function Login() {
         </Div1>
       </Form>
       </div>
-      </div>
+      </div>*/
    
+
+<div class="grid grid-cols-2">
+  <div class="row-span-4 flex-1 ">
+  <img src={logo2} />
+  </div>
+  <div class="row-span-3 border-slate-800 border-1 grid justify-items-center flex-2 columns-1 gap-1" onsubmit={onSubmitHandler}>
+            <div class="text-5xl">Log-in</div>
+            <input class="bg-transparent w-1/2 h-45" type="text" value={Email} onChange={onEmailHandler} placeholder="Id" /> <br />
+            <input class="bg-transparent w-1/2 h-45" type="password" value={Password} onChange={onPasswordHandler} placeholder="PASSWORD"  />
+  </div>
+  <div class="border-slate-800 border-1 bg-gray-600 mt-150 flex-3"> 
+  <button class="mx-200" type="submit">로그인</button>
+  <button class="mx-200 text-2xl" onClick={navigateToJoin}>회원가입</button>
+  </div>
+</div>
+
   );
 }
 export default Auth(Login, null);
+
+
+
+
+   

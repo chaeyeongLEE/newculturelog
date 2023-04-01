@@ -14,7 +14,7 @@ import axiosurl from '../axiosurl';
 import Chart from './Chart';
 //import { Row, Col } from 'react-bootstrap';
 import styled from 'styled-components';
-import sea from '../sea.png'
+import main1 from '../main1.png'
 
 const TitleSpan = styled.span`
   color: #545d42;
@@ -100,11 +100,11 @@ function LandingPage() {
     //<>
     <div className='grid grid-cols-2 gap4'>
       <div className='col-span-2'>
-      <img src={sea}></img>
+      <img src={main1}></img>
      
       </div>
       
-      <div className='grid-cols-1 p-90'>
+      <div className='grid-cols-1 p-900'>
       <SubTitleSpan>
       <p className='text-28'> : 전체 사용자 문화 기록 현황</p> <br />
       <p className=' text-18'>가입 유저들의 책, 영화, 공연 문화기록 현황이에요.<br />

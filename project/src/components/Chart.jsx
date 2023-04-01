@@ -26,15 +26,16 @@ export default function Chart({ movie, book, perfo, innerWidth }) {
   ];
 
   return (
-    <div
-      style={{
-        margin: '30px 10px 10px',
-        display: 'flex',
-        justifyContent: 'center',
-      }}
-    >
+    // <div
+    //   style={{
+    //     margin: ' 10px 10px',
+    //     display: 'flex',
+    //     justifyContent: 'center',
+    //   }}
+    // >
+    <div className='w-40'>
       <LineChart
-        width={innerWidth - 800}
+        width={innerWidth -970}
         height={300}
         data={data}
         margin={{

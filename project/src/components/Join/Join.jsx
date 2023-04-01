@@ -5,8 +5,9 @@ import { registerUser } from '../../actions/user_action';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import Auth from '../../hoc/auth';
+import logo2 from '../../logo2.png'
 
-const Div2 = styled.div`
+/*const Div2 = styled.div`
   margin: auto;
   width: 500px;
   height: 570px;
@@ -45,7 +46,7 @@ const Div2 = styled.div`
     box-shadow: 0 2px 8px rgba(230, 115, 53, 0.25);
     font-size: 17px;
   }
-`;
+`;*/
 function Join() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -140,7 +141,7 @@ function Join() {
       });
   };
   return (
-    <div
+   /* <div
       style={{
         display: 'flex',
         justifyContent: 'center',
@@ -180,11 +181,37 @@ function Join() {
           {ConfirmPassword.length > 0 && (
             <span style={{ fontSize: '0.9rem' }}>{PasswordConfirmMessage}</span>
           )}
-          {/* <br /> */}
+          {/* <br /> }
           <button type="submit">회원가입</button>
         </Div2>
       </form>
-    </div>
+    </div>*/
+  <div class="grid grid-cols-2">
+  <div class="row-span-4 flex-1 ">
+  <img src={logo2} />
+  </div>
+  <div class="row-span-3 border-slate-800 border-1 grid justify-items-center flex-2">
+          <input classname="border-slate-800 border-3"type="text" value={Email} onChange={onEmailHandler} placehorder="email" />
+          {Email.length > 0 && (<div>{EmailMessage} </div>)}
+          <input type="password" value={Password} onChange={onPasswordHandler} placehorder="pw" />
+          {Password.length > 0 && (<div>{PasswordMessage}</div>)}
+          <labe>
+            Confirm Password
+          </labe>
+          <input
+            type="password"
+            value={ConfirmPassword}
+            onChange={onConfirmPasswordHandler}
+          />
+          {ConfirmPassword.length > 0 && (
+            <div>{PasswordConfirmMessage}</div>
+          )}
+          </div>
+  <div class="border-slate-800 border-1 bg-gray-600 mt-150 flex-3"> 
+  <button class="mx-200 my-30 text-2xl " type="submit"> Register </button>
+  </div>
+</div>
   );
 }
 export default Auth(Join, null);
+//<img src={logo2} />
