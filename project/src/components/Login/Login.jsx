@@ -109,30 +109,30 @@ function Login() {
 
   return (
   
-    /*<div className="grid-cols-2">
-      <div className="col-start-1 col-end-2">
+    <div className="grid-cols-2 rows-2 flex border-slate-500 border-2 fixed">
+      <div className="col-span-2 w-2/3">
       <img src={logo2}></img></div>
-      <div className='col-end-2'>
+      <div className='w-1/3 h-2/3 '>
       <Form onSubmit={onSubmitHandler}>
         <Div1>
-          <h1>LOG-IN</h1>
-          <Input type="text" value={Email} onChange={onEmailHandler} placeholder="Id" />
-          <Input
+          <p className='italic text-4xl'>LOG-IN</p>
+          <Input type="text" value={Email} onChange={onEmailHandler} placeholder="Id" className='bg-transparent' />
+          <Input className='bg-transparent'
             type="password"
             value={Password}
             onChange={onPasswordHandler}
             placeholder="PASSWORD"
           />
-          <Div2>
+          <div className='absolute bottom-30 flex space-x-200'>
             <button type="submit">로그인</button>
             <button onClick={navigateToJoin}>회원가입</button>
-          </Div2>
+          </div>
         </Div1>
       </Form>
       </div>
-      </div>*/
+      </div>
    
-
+/*
 <div class="grid grid-cols-2">
   <div class="row-span-4 flex-1 ">
   <img src={logo2} />
@@ -146,7 +146,7 @@ function Login() {
   <button class="mx-200" type="submit">로그인</button>
   <button class="mx-200 text-2xl" onClick={navigateToJoin}>회원가입</button>
   </div>
-</div>
+</div> */
 
   );
 }

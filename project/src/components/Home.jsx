@@ -14,7 +14,7 @@ import styled from 'styled-components';
 import ChartPerson from './ChartPerson';
 import './Homeyeong.css';
 import './Home.css';
-
+import main2 from '../main2.png'
 
 const P = styled.p`
   display: flex;
@@ -120,59 +120,107 @@ function Home() {
   const typingText = '고스란히 기록하는 나의 문화생활';
 
   return (
-    <Container fluid>
-      <Row style={{ margin: '50px', marginBottom: '0px' }}>
-        <Col xs={12} style={{ padding: '0px', margin: 'auto' }}>
-          <Row style={{ maxWidth: '2000px', margin: 'auto' }}>
-            <Col xs={12} md={6}>
-              <YeongCalendar />
-            </Col>
-            <Col xs={12} md={6} style={{ maxHeight: '1000px' }}>
-              <Row style={{ height: '100%' }}>
-                <Col xs={12} className="secondTitle">
-                  {/* <Div8> */}
-                  <div style={{ paddingLeft: '50px' }}>
-                    <ReactTypingEffect
-                      // text={['고스란히 기록하는 나의 문화생활']}
-                      text={typingText}
-                      style={{
-                        backgroundColor: '#e1e0c8	',
-                        fontSize: '23px',
-                        fontWeight: '500',
-                        // marginLeft: '250px',
-                      }}
-                    />
-                  </div>
-                  {/* </Div8> */}
-                  <P>
-                    모든 것이 바쁘게 흘러가는 요즘, 문화생활까지 덧없이 자연스레
-                    지나쳐버리게 되는 날이 많아집니다. <br /> CultureLog는 내가
-                    보고 듣고 읽은 것들을 기록하는 공간입니다. <br /> 자신이
-                    경험한 문화생활과 리뷰, 그리고 생각을 기록하며 삶의 빈 곳을
-                    채워보는 건 어떨까요? <br />
-                    <br />
-                    달력 속 날짜를 클릭하면 책, 영화, 공연을 선택해 이야기를
-                    남길 수 있는 작성창으로 이동합니다.
-                  </P>
-                </Col>
-                <Col xs={12} style={{ padding: '0px' }}>
-                  <ChartPerson
-                    movie={movie}
-                    book={book}
-                    perfo={perfo}
-                    Allmovie={Allmovie}
-                    Allbook={Allbook}
-                    Allperfo={Allperfo}
-                    innerWidth={innerWidth}
-                  />
-                </Col>
-                {/* <br /> */}
-                <Col xs={12} className="recordYearCol">
+    // <Container fluid>
+    //   <Row style={{ margin: '50px', marginBottom: '0px' }}>
+    //   <img src={main2}></img>
+
+    //     <Col xs={12} style={{ padding: '0px', margin: 'auto' }}>
+    //       <Row style={{ maxWidth: '2000px', margin: 'auto' }}>
+    //         <Col xs={12} md={6}>
+    //           <YeongCalendar />
+    //         </Col>
+    //         <Col xs={12} md={6} style={{ maxHeight: '1000px' }}>
+    //           <Row style={{ height: '100%' }}>
+    //             <Col xs={12} className="secondTitle">
+    //               {/* <Div8> */}
+    //               <div style={{ paddingLeft: '50px' }}>
+    //                 <ReactTypingEffect
+    //                   // text={['고스란히 기록하는 나의 문화생활']}
+    //                   text={typingText}
+    //                   style={{
+    //                     backgroundColor: '#e1e0c8	',
+    //                     fontSize: '23px',
+    //                     fontWeight: '500',
+    //                     // marginLeft: '250px',
+    //                   }}
+    //                 />
+    //               </div>
+    //               {/* </Div8> */}
+    //               <P>
+    //                 모든 것이 바쁘게 흘러가는 요즘, 문화생활까지 덧없이 자연스레
+    //                 지나쳐버리게 되는 날이 많아집니다. <br /> CultureLog는 내가
+    //                 보고 듣고 읽은 것들을 기록하는 공간입니다. <br /> 자신이
+    //                 경험한 문화생활과 리뷰, 그리고 생각을 기록하며 삶의 빈 곳을
+    //                 채워보는 건 어떨까요? <br />
+    //                 <br />
+    //                 달력 속 날짜를 클릭하면 책, 영화, 공연을 선택해 이야기를
+    //                 남길 수 있는 작성창으로 이동합니다.
+    //               </P>
+    //             </Col>
+    //             <Col xs={12} style={{ padding: '0px' }}>
+                  // <ChartPerson
+                  //   movie={movie}
+                  //   book={book}
+                  //   perfo={perfo}
+                  //   Allmovie={Allmovie}
+                  //   Allbook={Allbook}
+                  //   Allperfo={Allperfo}
+                  //   innerWidth={innerWidth}
+                  // />
+    //             </Col>
+    //             {/* <br /> */}
+    //             <Col xs={12} className="recordYearCol">
+                  // <div className="recordYear">
+                  //   <div className="recordYearTitle">올해의 기록 </div>
+                  //   <div className="recordYearSubTitle">
+                  //     올해 나는 얼마나 채웠을까?
+                  //   </div>
+                  // </div>
+                  // <div className="recordYear">
+                  //   <span>책</span>
+                  //   <span>
+                  //     {yearData.length > 0 ? yearData[1].length : '0000000'}
+                  //   </span>
+                  // </div>
+                  // <hr />
+                  // <div className="recordYear">
+                  //   <span>공연</span>
+                  //   <span>
+                  //     {yearData.length > 0 ? yearData[0].length : '0000000'}
+                  //   </span>
+                  // </div>
+                  // <hr />
+                  // <div className="recordYear">
+                  //   <span>영화</span>
+                  //   <span>
+                  //     {yearData.length > 0 ? yearData[2].length : '0000000'}
+                  //   </span>
+                  // </div>
+    //               <hr />
+    //             </Col>
+    //           </Row>
+    //         </Col>
+    //       </Row>
+    //     </Col>
+    //   </Row>
+      
+    // </Container>
+  
+  
+  <div class="grid grid-cols-2 border-2 border-slate-500">
+    
+  <div class="col-span-2"><img src={main2}></img></div>
+  <div class="col-span-2 flex justify-center border-2 border-b-neutral-600 h-40"> ■ 달력 속 날짜를 클릭하면 책, 영화, 공연을 선택해 이야기를 남길 수 있는 작성창으로 이동합니다 ■ </div>
+  <div class="flex justify-center border-2 border-b-neutral-600 border-e-neutral-600">Culture Calendar</div>
+  <div class="flex justify-center row-span-3 border-2 border-b-neutral-600">04 그냥둬요 + 기록게시판</div>
+  <div class="flex justify-center border-2 border-e-neutral-600">05  달력자리</div>
+  <div class="flex justify-center border-2 border-e-neutral-600 border-t-neutral-600 border-b-neutral-600" >07 책 영화 공연</div>
+  <div class="col-span-2 flex justify-center border-2 border-b-neutral-600">
                   <div className="recordYear">
-                    <div className="recordYearTitle">올해의 기록 </div>
-                    <div className="recordYearSubTitle">
-                      올해 나는 얼마나 채웠을까?
-                    </div>
+                    <p className="text-slate-900">올해의 기록 </p>
+                    <p className="text-slate-900">
+                      올해 나는 얼마나 기록했을까?
+                    </p>
                   </div>
                   <div className="recordYear">
                     <span>책</span>
@@ -194,16 +242,21 @@ function Home() {
                       {yearData.length > 0 ? yearData[2].length : '0000000'}
                     </span>
                   </div>
-                  <hr />
-                </Col>
-              </Row>
-            </Col>
-          </Row>
-        </Col>
-      </Row>
-      
-    </Container>
+    </div>
+<div class="col-span-2 flex justify-center column-1 gird-divide-y">          
+    <p className="text-slate-900"> Culture Log Graphic </p>
+                    <ChartPerson
+                    movie={movie}
+                    book={book}
+                    perfo={perfo}
+                    Allmovie={Allmovie}
+                    Allbook={Allbook}
+                    Allperfo={Allperfo}
+                    innerWidth={innerWidth} /></div>
+
+</div>
   );
 }
 
 export default Auth(Home, true);
+//책,영화,이미지 안에 그거 넣는건 칼럼형태로해서 해보기. 이미지 float로 해서! 

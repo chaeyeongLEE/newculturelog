@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import './Homeyeong.css';
 import ReactTypingEffect from 'react-typing-effect';
-
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import YeongCalendar from './YeongCalendar';
@@ -19,6 +18,7 @@ export default function Home() {
   return (
     <Container fluid>
       <Row style={{ height: '77%', margin: '50px' }}>
+     
         <Col xs={12} style={{ padding: '0px', margin: 'auto' }}>
           <Row style={{ maxWidth: '2000px', margin: 'auto' }}>
             <Col xs={12} md={6}>
