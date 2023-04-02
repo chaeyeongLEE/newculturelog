@@ -15,6 +15,15 @@ import ChartPerson from './ChartPerson';
 import './Homeyeong.css';
 import './Home.css';
 import main2 from '../main2.png'
+import RecordBook from '../RecordBook.png'
+import RecordMovie from '../RecordMovie.png'
+import RecordPerformance from '../RecordPerformance.png'
+import Blogo from '../Blogo.png'
+import Mlogo from '../Mlogo.png'
+import Plogo from '../Plogo.png'
+
+
+
 
 const P = styled.p`
   display: flex;
@@ -210,41 +219,45 @@ function Home() {
   <div class="grid grid-cols-2 border-2 border-slate-500">
     
   <div class="col-span-2"><img src={main2}></img></div>
-  <div class="col-span-2 flex justify-center border-2 border-b-neutral-600 h-40"> ■ 달력 속 날짜를 클릭하면 책, 영화, 공연을 선택해 이야기를 남길 수 있는 작성창으로 이동합니다 ■ </div>
-  <div class="flex justify-center border-2 border-b-neutral-600 border-e-neutral-600">Culture Calendar</div>
+  <div class="col-span-2 flex justify-center border-1 border-b-neutral-600 h-47"> ■ 달력 속 날짜를 클릭하면 책, 영화, 공연을 선택해 이야기를 남길 수 있는 작성창으로 이동합니다 ■ </div>
+  <div class="flex justify-center border-0 border-b-neutral-600 border-e-neutral-600 bg-slate-600 h-95">
+  <p className="text-3xl text-slate-950 text-white italic mt-28">Culture Calendar</p> </div>
   <div class="flex justify-center row-span-3 border-2 border-b-neutral-600">04 그냥둬요 + 기록게시판</div>
-  <div class="flex justify-center border-2 border-e-neutral-600">05  달력자리</div>
-  <div class="flex justify-center border-2 border-e-neutral-600 border-t-neutral-600 border-b-neutral-600" >07 책 영화 공연</div>
-  <div class="col-span-2 flex justify-center border-2 border-b-neutral-600">
-                  <div className="recordYear">
-                    <p className="text-slate-900">올해의 기록 </p>
-                    <p className="text-slate-900">
-                      올해 나는 얼마나 기록했을까?
-                    </p>
+  <div class="col-span-2 flex justify-center border-2 border-e-neutral-600"> <YeongCalendar /></div>
+  <div class="col-span-2 border-2 border-e-neutral-600 border-t-neutral-600 border-b-neutral-600 " >
+          <div class="flex justify-left gap-5 p-10 mx-100">
+          <img src={Blogo} /> Book
+          <img src={Plogo} /> Performance
+          <img src={Mlogo} /> Movie  
+          </div>
+  </div>
+  <div class="col-span-2 py-60 border-2 border-b-neutral-600 flex flex-row flex justify-items-center place-items-center">
+                  <div className="basis-1/4">
+                    <p className="text-slate-900 italic text-3xl"> Record of the year </p>
+                    <p className="text-slate-900"> 올해 나는 얼마나 기록했을까? </p>
                   </div>
-                  <div className="recordYear">
-                    <span>책</span>
-                    <span>
-                      {yearData.length > 0 ? yearData[1].length : '0000000'}
-                    </span>
-                  </div>
-                  <hr />
-                  <div className="recordYear">
-                    <span>공연</span>
-                    <span>
-                      {yearData.length > 0 ? yearData[0].length : '0000000'}
-                    </span>
-                  </div>
-                  <hr />
-                  <div className="recordYear">
-                    <span>영화</span>
-                    <span>
-                      {yearData.length > 0 ? yearData[2].length : '0000000'}
-                    </span>
-                  </div>
-    </div>
-<div class="col-span-2 flex justify-center column-1 gird-divide-y">          
-    <p className="text-slate-900"> Culture Log Graphic </p>
+                    <div className='mx-90'>
+                      <div className='z-0 w-25 h-40'><img src={RecordBook}/></div>
+                      <p className="text-slate-950 text-white z-1"> 책 
+                      {yearData.length > 0 ? yearData[1].length : '0000000'}</p>
+                    </div>
+
+                    <div>
+                      <div className='z-0 w-25 h-40'><img src={RecordPerformance}/></div>
+                      <p className="text-slate-950 text-white z-1"> 공연
+                      {yearData.length > 0 ? yearData[0].length : '0000000'}</p>
+                    </div>
+                    <div>
+                      <div className='z-0 w-25 h-40'><img src={RecordMovie}/></div>
+                      <p className="text-slate-950 z-1 text-white"> 영화
+                      {yearData.length > 0 ? yearData[2].length : '0000000'} </p>
+                    </div>
+                    
+</div>
+
+<div class="col-span-2 flex justify-center w-auto">          
+    <p className="text-slate-950"> Culture Log Graphic </p>
+    <div>
                     <ChartPerson
                     movie={movie}
                     book={book}
@@ -255,8 +268,8 @@ function Home() {
                     innerWidth={innerWidth} /></div>
 
 </div>
+</div>
   );
 }
 
 export default Auth(Home, true);
-//책,영화,이미지 안에 그거 넣는건 칼럼형태로해서 해보기. 이미지 float로 해서! 

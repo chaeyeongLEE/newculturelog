@@ -3,7 +3,9 @@ import Modal from 'react-bootstrap/Modal';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { dateData } from '../actions/date_action';
-import { DATE } from '../actions/types';
+import Blogo from '../Blogo.png'
+import Mlogo from '../Mlogo.png'
+import Plogo from '../Plogo.png'
 
 function Pop(props) {
   const navigate = useNavigate();
@@ -31,55 +33,30 @@ function Pop(props) {
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
-      <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
-          기록 남기기
-        </Modal.Title>
+      <Modal.Header closeButton> 
       </Modal.Header>
       <Modal.Body>
-        <h5 style={{ justifyContent: 'center', textAlign: 'center' }}>
+        <p className='text-2xl mx-20'>Record</p>
+        <p className='text-xs mx-20'>
           기록하고 싶은 문화 선택 시 작성페이지로 이동합니다.
-        </h5>
+        </p>
         <br />
-        <div
-          style={{
-            justifyContent: 'space-evenly',
-            display: 'flex',
-          }}
-        >
-          <Button
-            style={{
-              backgroundColor: 'rgb(238, 224, 154)',
-              borderColor: 'white',
-            }}
-            size="lg"
-            onClick={moveToMovie}
-          >
-            🎞️ 영화
-          </Button>
-          <Button
-            style={{
-              backgroundColor: 'rgb(138, 181, 216)',
-              borderColor: 'white',
-              width: '110px',
-            }}
-            size="lg"
-            onClick={moveToBook}
-          >
-            📚 책
-          </Button>
-          <Button
-            style={{
-              backgroundColor: 'rgb(230, 100, 169)',
-              borderColor: 'white',
-            }}
-            size="lg"
-            onClick={moveToPer}
-          >
-            🎪 공연
-          </Button>
+          <div className='flex justify-left gap-2'>
+            <Button onClick={moveToBook} className='w-1/3 border-neutral-500 bg-stone-100'>
+              <img src={Blogo} alt='책' />
+              <p className='text-black'>BOOK</p>
+            </Button>
+            <Button onClick={moveToMovie} className='w-1/3 border-neutral-500 bg-stone-100'>
+              <img src={Mlogo} alt='영화' /> movie
+              <p className='text-black'>MOVIE</p>
+            </Button>
+            <Button onClick={moveToPer} className='w-1/3 border-neutral-500 bg-stone-100'>
+              <img src={Plogo} alt='공연' />
+              <p className='text-black'>PERFORMANCE</p>
+            </Button>
         </div>
       </Modal.Body>
+
       <Modal.Footer>
         <Button
           style={{

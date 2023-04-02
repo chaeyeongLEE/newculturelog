@@ -12,12 +12,13 @@ import axiosurl from '../axiosurl';
 import styled from 'styled-components';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-// import { dateData } from '../actions/date_action';
-// import { Toast } from 'react-bootstrap';
+import Blogo from '../Blogo.png'
+import Mlogo from '../Mlogo.png'
+import Plogo from '../Plogo.png'
 
 const Div5 = styled.div`
   margin-left: 10px;
-  margin-top: 100px;
+  margin-top: 150px;
 `;
 
 const Div7 = styled.div`
@@ -70,29 +71,6 @@ export default function YeongCalendar(props) {
       setModalShow(!modalShow);
     });
   };
-
-  // const allReview = () => {
-  //   alert(data[2][0].review);
-  //   console.log(data[2][0]);
-  // };
-  //그치만 alert로 띄우면 삭제가 안되니까 다른 방식으로 해야한다.
-  //지금은 각 값이 들어오는지만 확인을 하였다. 몇 번째 배열의 값을 누를 지 모르기때문에 그에 따라 값을 가져와야함.
-  //서버에서는 데이터가 있는 경우에는 해당 데이터를 JSON 형태로 응답하고, 데이터가 없는 경우에는 빈 JSON 객체 {}를 응답
-  // 날짜 클릭 이벤트핸들러
-
-  // const handleDayClick = (value, event) => {
-  //   //console.log('target', moment(value).format('YYYY년 MM월 DD일'));
-  //   axios({
-  //     method: 'get',
-  //     url: axiosurl.fromDBperfo,
-  //     params: { date: moment(value).format('YYYY년 MM월 DD일') },
-  //   }).then((re) => {
-  //     console.log(re.data);
-  //     if (re.data == null) {
-  //       setModalShow(!modalShow);
-  //     } else alert(re.data);
-  //   });
-  // };
 
   // 마크가져오기
   useEffect(() => {
@@ -169,7 +147,7 @@ export default function YeongCalendar(props) {
       });
   };
   return (
-    <div>
+    <div className='grid grid-cols-2'>
       <Calendar
         onChange={setValue}
         value={value}
@@ -181,22 +159,8 @@ export default function YeongCalendar(props) {
           const tempData = marks.find(
             (x) => x === moment(date).format('YYYY년 MM월 DD일')
           );
-          // console.log('tempData', tempData);
+         
           if (tempData) {
-            // temp += 'highlight ';
-            // if (markData[tempData].book) {
-            //   // console.log('mark book');
-            //   temp += 'highlightBook ';
-            // }
-            // if (markData[tempData].movie) {
-            //   // console.log('mark movie');
-            //   temp += 'highlightMovie ';
-            // }
-            // if (markData[tempData].perfo) {
-            //   // console.log('mark perfo');
-            //   temp += 'highlightPerfo ';
-            // }
-            // return temp;
             return 'highlight ';
           }
         }}
@@ -236,118 +200,91 @@ export default function YeongCalendar(props) {
       {modalShow && (
         <Pop show={modalShow} date={value} onHide={() => setModalShow(false)} />
       )}
-      <div className="text-gray-500 mt-4">
+      <div>
         <Div5>
-          <h4
-            style={{
-              backgroundColor: '    #bbd2e3',
-              width: '190px',
-              height: '40px',
-              textAlign: 'center',
-              justifyContent: 'center',
-              paddingTop: '5px',
-              fontWeight: '600',
-            }}
-          >
-            {' '}
-            그 날의 기록
-          </h4>{' '}
-          <Div7>
-            <p className="dot dotBook dotResponsive"> 　책 </p>
-            <p className="dot dotMovie dotResponsive"> 　영화 </p>
-            <p className="dot dotPerfo dotResponsive"> 　공연 </p>
-          </Div7>
-          <h2
-            style={{
-              backgroundColor: 'rgb(241, 188, 188)',
-              width: '190px',
-              fontSize: '20px',
-              borderRadius: '20px',
-              height: '30px',
-              fontWeight: '400',
-              paddingLeft: '12px',
-            }}
-          >
-            {moment(value).format('YYYY년 MM월 DD일')}
-          </h2>
-          <p> 날짜를 클릭하면 나의 기록을 볼 수 있습니다 '◡' </p>
+          <div className='text-xl my-30'> 안녕하세요:) 단비같은 여유와 함께 어떤 문화생활을 하셨나요?Culture Log 와 오늘도 지영님의 기록을 함께해요:) </div>
           <span>
             <Modal
               show={selectPerformance !== null}
               onHide={handlePerformanceClose}
             >
-              <Modal.Header closeButton>
-                <Modal.Title>기록 상세보기</Modal.Title>
-              </Modal.Header>
-              <Modal.Body>
-                {/* {console.log('selectPerformance', selectPerformance)} */}
-                🎵 제목 :{' '}
-                {selectPerformance !== null
-                  ? selectPerformance.title !== null
-                    ? selectPerformance.title
-                    : ''
-                  : ''}{' '}
-                <br />
-                <br />
-                🎪 극장 :
-                {selectPerformance !== null
-                  ? selectPerformance.hall !== null
-                    ? selectPerformance.hall
-                    : ''
-                  : ''}
-                <br />
-                <br />
-                🎤 배우 :
-                {selectPerformance !== null
-                  ? selectPerformance.mainroll !== null
-                    ? selectPerformance.mainroll
-                    : ''
-                  : ''}
-                <br /> <br />
-                💭 후기 :
-                {selectPerformance !== null
-                  ? selectPerformance.review !== null
-                    ? selectPerformance.review
-                    : ''
-                  : ''}
-              </Modal.Body>
-              <Modal.Footer>
-                <Button
-                  style={{
-                    backgroundColor: 'rgb(171, 131, 131)',
-                    borderColor: 'white',
-                  }}
-                  onClick={() => {
-                    deleteLog(selectPerformance, '공연');
-                  }}
-                >
-                  기록 삭제
-                </Button>
-                <Button
-                  style={{
-                    backgroundColor: 'rgb(204, 193, 193)',
-                    borderColor: 'white',
-                  }}
-                  onClick={handlePerformanceClose}
-                >
-                  창닫기
-                </Button>
-              </Modal.Footer>
+                <Modal.Header closeButton>
+                  <Modal.Title>기록 상세보기</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                  🎵 제목 :{' '}
+                  {selectPerformance !== null
+                    ? selectPerformance.title !== null
+                      ? selectPerformance.title
+                      : ''
+                    : ''}{' '}
+                  <br />
+                  <br />
+                  🎪 극장 :
+                  {selectPerformance !== null
+                    ? selectPerformance.hall !== null
+                      ? selectPerformance.hall
+                      : ''
+                    : ''}
+                  <br />
+                  <br />
+                  🎤 배우 :
+                  {selectPerformance !== null
+                    ? selectPerformance.mainroll !== null
+                      ? selectPerformance.mainroll
+                      : ''
+                    : ''}
+                  <br /> <br />
+                  💭 후기 :
+                  {selectPerformance !== null
+                    ? selectPerformance.review !== null
+                      ? selectPerformance.review
+                      : ''
+                    : ''}
+                </Modal.Body>
+                <Modal.Footer>
+                  <Button
+                    style={{
+                      backgroundColor: 'rgb(171, 131, 131)',
+                      borderColor: 'white',
+                    }}
+                    onClick={() => {
+                      deleteLog(selectPerformance, '공연');
+                    }}
+                  >
+                    기록 삭제
+                  </Button>
+                  <Button
+                    style={{
+                      backgroundColor: 'rgb(204, 193, 193)',
+                      borderColor: 'white',
+                    }}
+                    onClick={handlePerformanceClose}
+                  >
+                    창닫기
+                  </Button>
+                </Modal.Footer>
             </Modal>
             {data.length > 0 ? (
               data[0].map((el, index) => {
                 // console.log('el', el);
                 return (
-                  <div key={index}>
-                    <h3> 🎼 공연 </h3>
-                    제목 : {el.title}
-                    <br /> 극장 : {el.hall}
-                    {/* <Button variant="primary" onClick={handleShow}> */}
+
+                  <div className='flex' key={index}>
+                    <div className='w-1/3'> <img src={Blogo} /></div>
+                    <div className='w-2/3'>
+                    Title. {el.title}
+                    <br /> Hall. {el.hall}</div>
+                   
                     <Button
                       style={{
                         marginLeft: 'auto',
-                        backgroundColor: 'rgb(204, 193, 193)',
-                        borderColor: 'white',
+                        marginTop: '100px',
+                        borderRadius:'50%',
+                        width:'180px',
+                        backgroundColor: 'none',
+                        color:'black',
+                        borderColor: 'black',
                         display: 'inline-flex',
                         float: 'right',
                       }}
@@ -355,9 +292,8 @@ export default function YeongCalendar(props) {
                         setSelectPerformance(el);
                       }}
                     >
-                      상세보기
+                      Detail
                     </Button>
-                    <hr style={{ marginTop: '30px' }} />
                   </div>
                 );
               })
@@ -420,7 +356,6 @@ export default function YeongCalendar(props) {
                 >
                   창닫기
                 </Button>
-                {/* <Button variant="primary" onClick={handleClose}>Save Changes</Button> */}
               </Modal.Footer>
             </Modal>
             {data.length > 0 ? (
