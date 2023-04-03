@@ -48,11 +48,12 @@
   background: none;
 }
 .react-calendar__navigation button:disabled {
-  background-color: #e1e0c8;
+  background-color: transparent;
 }
+/*날짜나 넘기는 거 클릭했을 때*/
 .react-calendar__navigation button:enabled:hover,
 .react-calendar__navigation button:enabled:focus {
-  background-color:#e1e0c8;
+  background-color:transparent;
 }
 .react-calendar__month-view__weekdays {
   text-align: center;
@@ -80,52 +81,54 @@
 .react-calendar__century-view .react-calendar__tile {
   padding: 2em 0.5em;
 }
+
+/*닷추가하는거*/
 .react-calendar__tile {
   max-width: 100%;
-  padding: 15px 6px;
-  background: none;
-  text-align: center;
-  align-content: center;
-  line-height: 35px;
+  max-height: 100%;
+  line-height: 40px;
 }
 .react-calendar__tile:disabled {
   background-color: #f0f0f0;
 }
+
+/*hover시의 원형*/
 .react-calendar__tile:enabled:hover,
 .react-calendar__tile:enabled:focus {
   background-color: #c1a7a7;
   border-radius: 50%;
+  padding: 23px;
 } 
 
 /*오늘의 날짜*/
 .react-calendar__tile--now {
-  background: #ccc9c8;
-  border-radius: 19px;
+  background: #82412b;
 }
 .react-calendar__tile--now:enabled:hover,
 .react-calendar__tile--now:enabled:focus {
   background: #ca9b82;
+ 
 }
 .react-calendar__tile--hasActive {
   background: #dbcae4;
 }
 .react-calendar__tile--hasActive:enabled:hover,
 .react-calendar__tile--hasActive:enabled:focus {
-  background: #d0d9e3;
+  background: #3768a0;
 }
 
-/*클릭되어있는날짜*/
+/*클릭한 날짜*/
 .react-calendar__tile--active {
-  background:rgb(138 164 203 / 43%);
+  background:rgba(25, 60, 113, 0.43);
   color: rgb(2, 2, 2);
   border-radius: 50%;
 }
 .react-calendar__tile--active:enabled:hover,
-.react-calendar__tile--active:enabled:focus {
-  background: rgb(199, 213, 235);
+.react-calendar__tile--active:enabled:focus{
+  background: #c1a9cd;
 }
 .react-calendar--selectRange .react-calendar__tile--hover {
-  background-color: #e6e6e6;
+  background-color: #c1a9cd;
 }
 
 
@@ -156,13 +159,11 @@
 } */
 
 .dot {
-  height:150px;
-  width: 150px;
-  /* background-color: #f87171; */
+  height:20px;
+  width: 30px;
   display: inline-flex;
-  margin-right: 2px;
-
-
+  margin-right: 3px;
+  z-index: 100;
 }
 .dotBook {
   background-image: url("../Blogo.png");
@@ -172,7 +173,6 @@
 .dotMovie {
   background-image: url("../Mlogo.png");
   background-repeat: no-repeat;
-
 }
 .dotPerfo {
   background-image: url("../Plogo.png");

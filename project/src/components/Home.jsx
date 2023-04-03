@@ -6,7 +6,6 @@ import axios from 'axios';
 import axiosurl from '../axiosurl';
 import Auth from '../hoc/auth';
 import ReactTypingEffect from 'react-typing-effect';
-import HomeCalendar from './HomeCalendar';
 import { Cookies } from 'react-cookie';
 import YeongCalendar from './YeongCalendar';
 import moment from 'moment';

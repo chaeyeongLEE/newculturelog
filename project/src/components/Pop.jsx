@@ -37,17 +37,18 @@ function Pop(props) {
       </Modal.Header>
       <Modal.Body>
         <p className='text-2xl mx-20'>Record</p>
-        <p className='text-xs mx-20'>
+        <p className='text-s mx-20'>
           기록하고 싶은 문화 선택 시 작성페이지로 이동합니다.
         </p>
         <br />
           <div className='flex justify-left gap-2'>
+         
             <Button onClick={moveToBook} className='w-1/3 border-neutral-500 bg-stone-100'>
-              <img src={Blogo} alt='책' />
-              <p className='text-black'>BOOK</p>
+              <img src={Blogo} alt='책' /> 
+              <p className='text-black text-xl text-center'>BOOK</p>
             </Button>
             <Button onClick={moveToMovie} className='w-1/3 border-neutral-500 bg-stone-100'>
-              <img src={Mlogo} alt='영화' /> movie
+              <img src={Mlogo} alt='영화' />
               <p className='text-black'>MOVIE</p>
             </Button>
             <Button onClick={moveToPer} className='w-1/3 border-neutral-500 bg-stone-100'>

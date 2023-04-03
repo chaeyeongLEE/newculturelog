@@ -59,6 +59,7 @@ export default function YeongCalendar(props) {
 
   const handleDayClick = (value, event) => {
     //console.log('user', user);
+    //현재 클릭한 날짜
     const clickedDate = moment(value).format('YYYY년 MM월 DD일');
     axios({
       method: 'get', //데이터가 없어도 비동기 처리가 되기때문에 then()메서드가 항상 실행된다.
@@ -187,9 +188,10 @@ export default function YeongCalendar(props) {
                 <div className="dot dotPerfo" key={'dotPerfo'}></div>
               );
             }
+            //아래 tempTileContent는 마킹이 놓이는 자리의 값
             return (
               <>
-                <div className="flex justify-center items-center absoluteDiv">
+                <div className="h-19 flex">
                   {tempTileContent}
                 </div>
               </>
