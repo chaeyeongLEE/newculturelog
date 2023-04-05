@@ -1,10 +1,10 @@
-div.container-fluid {
+/* div.container-fluid {
   height: 83vh;
 }
 
 div.row {
   margin: 0px;
-}
+} */
 
 #tempImg {
   width: 100%;
@@ -17,7 +17,7 @@ div.row {
   text-align: left;
 }
 
-/* 올해의 기록 */
+/* 올해의 기록 
 .recordYearCol {
   padding: 95px 0px 0px 50px;
 }
@@ -51,7 +51,7 @@ hr {
   position: relative;
   top: -10px;
 }
-
+*/
 /* 오른쪽 Title */
 .secondTitle {
   height: 33%;
@@ -110,3 +110,8 @@ hr {
     font-size: 1rem;
   }
 }
+
+.col-span-2 {
+  width: 100%;
+}
+

@@ -24,35 +24,6 @@ import Plogo from '../Plogo.png'
 
 
 
-const P = styled.p`
-  display: flex;
-  font-size: 16px;
-  /* margin-top: 80px; */
-  /* margin-bottom: 345px; */
-  margin-top: 60px;
-  color: #3c5087;
-  text-align: center;
-  justify-content: center;
-  padding-left: 50px;
-  @media screen and (max-width: 1070px) {
-    font-size: 14px;
-    margin-top: 25px;
-    padding-left: 20px;
-  }
-  @media screen and (max-width: 880px) {
-    height: 300px;
-    display: flex;
-    margin-bottom: 300px;
-  }
-`;
-const Div8 = styled.div`
-  @media screen and (max-width: 900px) {
-    display: flex;
-    margin-left: -170px;
-    font-size: x-small;
-  }
-`;
-
 // Main Page
 function Home() {
   const navigate = useNavigate();
@@ -125,96 +96,8 @@ function Home() {
   }, []);
   // console.log('innerWidth', innerWidth);
 
-  const typingText = '고스란히 기록하는 나의 문화생활';
 
   return (
-    // <Container fluid>
-    //   <Row style={{ margin: '50px', marginBottom: '0px' }}>
-    //   <img src={main2}></img>
-
-    //     <Col xs={12} style={{ padding: '0px', margin: 'auto' }}>
-    //       <Row style={{ maxWidth: '2000px', margin: 'auto' }}>
-    //         <Col xs={12} md={6}>
-    //           <YeongCalendar />
-    //         </Col>
-    //         <Col xs={12} md={6} style={{ maxHeight: '1000px' }}>
-    //           <Row style={{ height: '100%' }}>
-    //             <Col xs={12} className="secondTitle">
-    //               {/* <Div8> */}
-    //               <div style={{ paddingLeft: '50px' }}>
-    //                 <ReactTypingEffect
-    //                   // text={['고스란히 기록하는 나의 문화생활']}
-    //                   text={typingText}
-    //                   style={{
-    //                     backgroundColor: '#e1e0c8	',
-    //                     fontSize: '23px',
-    //                     fontWeight: '500',
-    //                     // marginLeft: '250px',
-    //                   }}
-    //                 />
-    //               </div>
-    //               {/* </Div8> */}
-    //               <P>
-    //                 모든 것이 바쁘게 흘러가는 요즘, 문화생활까지 덧없이 자연스레
-    //                 지나쳐버리게 되는 날이 많아집니다. <br /> CultureLog는 내가
-    //                 보고 듣고 읽은 것들을 기록하는 공간입니다. <br /> 자신이
-    //                 경험한 문화생활과 리뷰, 그리고 생각을 기록하며 삶의 빈 곳을
-    //                 채워보는 건 어떨까요? <br />
-    //                 <br />
-    //                 달력 속 날짜를 클릭하면 책, 영화, 공연을 선택해 이야기를
-    //                 남길 수 있는 작성창으로 이동합니다.
-    //               </P>
-    //             </Col>
-    //             <Col xs={12} style={{ padding: '0px' }}>
-                  // <ChartPerson
-                  //   movie={movie}
-                  //   book={book}
-                  //   perfo={perfo}
-                  //   Allmovie={Allmovie}
-                  //   Allbook={Allbook}
-                  //   Allperfo={Allperfo}
-                  //   innerWidth={innerWidth}
-                  // />
-    //             </Col>
-    //             {/* <br /> */}
-    //             <Col xs={12} className="recordYearCol">
-                  // <div className="recordYear">
-                  //   <div className="recordYearTitle">올해의 기록 </div>
-                  //   <div className="recordYearSubTitle">
-                  //     올해 나는 얼마나 채웠을까?
-                  //   </div>
-                  // </div>
-                  // <div className="recordYear">
-                  //   <span>책</span>
-                  //   <span>
-                  //     {yearData.length > 0 ? yearData[1].length : '0000000'}
-                  //   </span>
-                  // </div>
-                  // <hr />
-                  // <div className="recordYear">
-                  //   <span>공연</span>
-                  //   <span>
-                  //     {yearData.length > 0 ? yearData[0].length : '0000000'}
-                  //   </span>
-                  // </div>
-                  // <hr />
-                  // <div className="recordYear">
-                  //   <span>영화</span>
-                  //   <span>
-                  //     {yearData.length > 0 ? yearData[2].length : '0000000'}
-                  //   </span>
-                  // </div>
-    //               <hr />
-    //             </Col>
-    //           </Row>
-    //         </Col>
-    //       </Row>
-    //     </Col>
-    //   </Row>
-      
-    // </Container>
-  
-  
   <div class="grid grid-cols-2 border-2 border-slate-500">
     
   <div class="col-span-2"><img src={main2}></img></div>
@@ -230,42 +113,51 @@ function Home() {
           <img src={Mlogo} /> Movie  
           </div>
   </div>
-  <div class="col-span-2 py-60 border-2 border-b-neutral-600 flex flex-row flex justify-items-center place-items-center">
-                  <div className="basis-1/4">
-                    <p className="text-slate-900 italic text-3xl"> Record of the year </p>
-                    <p className="text-slate-900"> 올해 나는 얼마나 기록했을까? </p>
-                  </div>
-                    <div className='mx-90'>
-                      <div className='z-0 w-25 h-40'><img src={RecordBook}/></div>
-                      <p className="text-slate-950 text-white z-1"> 책 
-                      {yearData.length > 0 ? yearData[1].length : '0000000'}</p>
-                    </div>
+  <div class="col-span-2  border-2 border-b-neutral-600 flex flex-row flex justify-items-center place-items-center gap-2">
+  <div className="basis-1/4">
+    <p className="text-slate-900 italic text-3xl"> Record of the year </p>
+    <p className="text-slate-900"> 올해 나는 얼마나 기록했을까? </p>
+  </div>
 
-                    <div>
-                      <div className='z-0 w-25 h-40'><img src={RecordPerformance}/></div>
-                      <p className="text-slate-950 text-white z-1"> 공연
-                      {yearData.length > 0 ? yearData[0].length : '0000000'}</p>
-                    </div>
-                    <div>
-                      <div className='z-0 w-25 h-40'><img src={RecordMovie}/></div>
-                      <p className="text-slate-950 z-1 text-white"> 영화
-                      {yearData.length > 0 ? yearData[2].length : '0000000'} </p>
-                    </div>
-                    
+  <div className='flex gap-10'>
+  <div className='z-0 h-full flex-shrink-0 relative'>
+    <img className='object-cover h-1/3 w-1/3' src={RecordBook} />
+    <p className="text-slate-950 text-white text-4xl absolute bottom-0 right-220 ml-190 mb-2">{yearData.length > 0 ? yearData[1].length : '0000000'}</p>
+    <p className="text-slate-900 text-white italic text-3xl absolute top-0 left-0 ml-2 mt-2">책</p>
+  </div>
 </div>
 
-<div class="col-span-2 flex justify-center w-auto">          
-    <p className="text-slate-950"> Culture Log Graphic </p>
-    <div>
-                    <ChartPerson
-                    movie={movie}
-                    book={book}
-                    perfo={perfo}
-                    Allmovie={Allmovie}
-                    Allbook={Allbook}
-                    Allperfo={Allperfo}
-                    innerWidth={innerWidth} /></div>
+<div className='flex gap-10'>
+  <div className='z-0 h-full flex-shrink-0 relative'>
+    <img className='object-cover h-1/3 w-1/3' src={RecordPerformance}/>
+    <p className="text-slate-950 text-white text-4xl absolute bottom-0 right-220 ml-190 mb-2">{yearData.length > 0 ? yearData[0].length : '0000000'}</p>
+    <p className="text-slate-900 text-white italic text-3xl absolute top-0 left-0 ml-2 mt-2">공연</p>
+  </div>
+</div>
 
+<div className='flex gap-10'>
+  <div className='z-0 h-full flex-shrink-0 relative'>
+      <img className='object-cover h-1/3 w-1/3' src={RecordMovie} />
+      <p className="text-slate-950 text-white text-4xl absolute bottom-0 right-220 ml-190 mb-2">{yearData.length > 0 ? yearData[2].length : '0000000'}</p>
+      <p className="text-slate-900 text-white italic text-3xl absolute top-0 left-0 ml-2 mt-2">영화</p>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="col-span-2 flex justify-center w-full">    
+<div className="text-slate-950 text-3xl mb-5 text-center"> Culture Log Graphic </div>
+</div>
+<div class="col-span-2 flex justify-center w-full">
+    <ChartPerson
+        movie={movie}
+        book={book}
+        perfo={perfo}
+        Allmovie={Allmovie}
+        Allbook={Allbook}
+        Allperfo={Allperfo}
+        innerWidth={innerWidth} />
 </div>
 </div>
   );

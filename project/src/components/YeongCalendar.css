@@ -1,3 +1,8 @@
+.calendar-container {
+  overflow: hidden;
+}
+
+
 
 .react-calendar {
  width: 700px;
@@ -196,6 +201,24 @@
   
   
   @media (max-width: 600px) {
+    .react-calendar {
+      height: 400px;
+      line-height: 1.5em;
+      font-size: 14px;
+    }
+    .react-calendar__tile {
+      font-size: 0.9rem;
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+    .react-calendar--doubleView .react-calendar__viewContainer {
+      flex-direction: column;
+      margin: 0;
+    }
+    .react-calendar--doubleView .react-calendar__viewContainer > * {
+      width: 100%;
+      margin: 0;
+    }
     .dot {
       margin-right: 0px !important;
     }
@@ -205,9 +228,22 @@
   }
 
   @media (max-width: 400px) {
+    .react-calendar {
+      height: 400px;
+      line-height: 1.5em;
+      font-size: 14px;
+    }
     .react-calendar__tile {
       font-size: 0.9rem;
       padding-left: 0px;
       padding-right: 0px;
+    }
+    .react-calendar--doubleView .react-calendar__viewContainer {
+      flex-direction: column;
+      margin: 0;
+    }
+    .react-calendar--doubleView .react-calendar__viewContainer > * {
+      width: 100%;
+      margin: 0;
     }
   }

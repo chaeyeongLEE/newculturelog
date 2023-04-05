@@ -26,25 +26,19 @@ export default function Chart({ movie, book, perfo, innerWidth }) {
   ];
 
   return (
-    // <div
-    //   style={{
-    //     margin: ' 10px 10px',
-    //     display: 'flex',
-    //     justifyContent: 'center',
-    //   }}
-    // >
-    <div className='w-40'>
       <LineChart
-        width={innerWidth -970}
-        height={300}
-        data={data}
-        margin={{
-          top: 5,
-          right: 60,
-          left: 0,
-          bottom: 5,
-        }}
-      >
+      width={innerWidth > 768 ? innerWidth - 970 : innerWidth - 40}
+      height={300}
+      data={data}
+      margin={{
+        top: 5,
+        right: innerWidth > 1024 ? 60 : 30,
+        left: 0,
+        bottom: 5,
+      }}
+      style={{
+        overflow: 'hidden',
+      }}>
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" />
         <YAxis />
@@ -52,6 +46,6 @@ export default function Chart({ movie, book, perfo, innerWidth }) {
         <Legend />
         <Line type="monotone" dataKey="AllUser" stroke="#82ca9d" />
       </LineChart>
-    </div>
+   
   );
 }
