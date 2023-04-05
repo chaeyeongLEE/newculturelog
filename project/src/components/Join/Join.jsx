@@ -186,31 +186,50 @@ function Join() {
         </Div2>
       </form>
     </div>*/
-  <div class="grid grid-cols-2">
-  <div class="row-span-4 flex-1 ">
-  <img src={logo2} />
+<div class="grid grid-cols-2">
+  <div class="row-span-4 flex-1">
+    <img src={logo2} />
   </div>
   <div class="row-span-3 border-slate-800 border-1 grid justify-items-center flex-2">
-          <input classname="border-slate-800 border-3"type="text" value={Email} onChange={onEmailHandler} placehorder="email" />
-          {Email.length > 0 && (<div>{EmailMessage} </div>)}
-          <input type="password" value={Password} onChange={onPasswordHandler} placehorder="pw" />
-          {Password.length > 0 && (<div>{PasswordMessage}</div>)}
-          <labe>
-            Confirm Password
-          </labe>
-          <input
-            type="password"
-            value={ConfirmPassword}
-            onChange={onConfirmPasswordHandler}
-          />
-          {ConfirmPassword.length > 0 && (
-            <div>{PasswordConfirmMessage}</div>
-          )}
-          </div>
-  <div class="border-slate-800 border-1 bg-gray-600 mt-150 flex-3"> 
-  <button class="mx-200 my-30 text-2xl " type="submit"> Register </button>
+  <input class="border-0 bg-transparent h-50 mb-4 w-2/3 p-2" type="text" value={Email} onChange={onEmailHandler} placeholder="Email" />
+    {Email.length > 0 && (<div>{EmailMessage}</div>)}
+    <input class="border-0 bg-transparent h-50 mb-4 w-2/3 p-2" type="password" value={Password} onChange={onPasswordHandler} placeholder="Password" />
+    {Password.length > 0 && (<div>{PasswordMessage}</div>)}
+    <input class="border-0 bg-transparent h-50 mb-4 w-2/3 p-2" type="password" value={ConfirmPassword} onChange={onConfirmPasswordHandler} placeholder="Confirm Password" />
+    {ConfirmPassword.length > 0 && (<div>{PasswordConfirmMessage}</div>)}
+  </div>
+  <div class="row-span-1 bg-gray-600 flex items-center justify-center col-span-2 sm:col-span-1">
+    <button class="text-white font-bold py-4 px-4 rounded w-full max-w-md focus:outline-none focus:shadow-outline" type="submit">Register</button>
   </div>
 </div>
+
+
+
+//   <div class="grid grid-cols-2">
+//   <div class="row-span-4 flex-1 ">
+//   <img src={logo2} />
+//   </div>
+//   <div class="row-span-3 border-slate-800 border-1 grid justify-items-center flex-2">
+//           <input classname="border-slate-800 border-3"type="text" value={Email} onChange={onEmailHandler} placehorder="email" />
+//           {Email.length > 0 && (<div>{EmailMessage} </div>)}
+//           <input type="password" value={Password} onChange={onPasswordHandler} placehorder="pw" />
+//           {Password.length > 0 && (<div>{PasswordMessage}</div>)}
+//           <labe>
+//             Confirm Password
+//           </labe>
+//           <input
+//             type="password"
+//             value={ConfirmPassword}
+//             onChange={onConfirmPasswordHandler}
+//           />
+//           {ConfirmPassword.length > 0 && (
+//             <div>{PasswordConfirmMessage}</div>
+//           )}
+//           </div>
+//   <div class="border-slate-800 border-1 bg-gray-600 mt-150 flex-3"> 
+//   <button class="mx-200 my-30 text-2xl " type="submit"> Register </button>
+//   </div>
+// </div>
   );
 }
 export default Auth(Join, null);

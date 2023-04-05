@@ -115,6 +115,8 @@
 .react-calendar__tile--hasActive:enabled:hover,
 .react-calendar__tile--hasActive:enabled:focus {
   background: #3768a0;
+  overflow: visible;
+  position: relative;
 }
 
 /*클릭한 날짜*/
@@ -122,10 +124,14 @@
   background:rgba(25, 60, 113, 0.43);
   color: rgb(2, 2, 2);
   border-radius: 50%;
+  transform: scale(0.9);
 }
 .react-calendar__tile--active:enabled:hover,
 .react-calendar__tile--active:enabled:focus{
-  background: #c1a9cd;
+  transform: scale(1);
+  background-color: #c1a7a7;
+  border-radius: 50%;
+  padding: 23px;
 }
 .react-calendar--selectRange .react-calendar__tile--hover {
   background-color: #c1a9cd;
@@ -164,6 +170,7 @@
   display: inline-flex;
   margin-right: 3px;
   z-index: 100;
+  background-size: cover;
 }
 .dotBook {
   background-image: url("../Blogo.png");
