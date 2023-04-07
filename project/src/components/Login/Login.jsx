@@ -9,6 +9,7 @@ import { socketUserLogin } from '../../actions/socket_action';
 import { useCookies } from 'react-cookie';
 import moment from 'moment';
 import logo2 from '../../logo2.png'
+import Footer from '../Footer';
 
 const Div1 = styled.div`
   margin: auto;
@@ -108,100 +109,59 @@ function Login() {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 border-slate-500 border-2 fixed h-screen">
-    <div className="col-span-1 md:col-span-1 overflow-hidden">
-      <img src={logo2} className="w-full h-full" alt="Logo" />
-    </div>
-    <div className="col-span-1 md:col-span-1 flex flex-col justify-center items-center">
-      <Form onSubmit={onSubmitHandler} className="w-full">
-        <div className="text-center mb-6">
-          <h1 className="text-4xl italic">LOG-IN</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 border-slate-500 border-2 fixed h-screen">
+        <div className="col-span-1 md:col-span-1 overflow-hidden">
+           <img src={logo2} className="w-full h-full" alt="Logo" />
         </div>
-        <div className="mb-4 flex justify-center">
-          <div className="w-full max-w-md">
-            <Input
-              type="text"
-              value={Email}
-              onChange={onEmailHandler}
-              placeholder="Id"
-              className="bg-transparent w-full border-b-2 border-gray-300 py-2 px-3 focus:outline-none focus:border-blue-600"
-            />
-          </div>
-        </div>
-        <div className="mb-6 flex justify-center">
-          <div className="w-full max-w-md">
-            <Input
-              type="password"
-              value={Password}
-              onChange={onPasswordHandler}
-              placeholder="PASSWORD"
-              className="bg-transparent w-full border-b-2 border-gray-300 py-2 px-3 focus:outline-none focus:border-blue-600"
-            />
-          </div>
-        </div>
-        <div className="flex justify-center items-center h-full">
-          <div className="md:flex justify-between w-full max-w-md">
-            <div className="grid grid-cols-2 gap-4">
-              <button
-                type="submit"
-                className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-              >
-                로그인
-              </button>
-              <button
-                onClick={navigateToJoin}
-                className="bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-              >
-                회원가입
-              </button>
+        <div className="col-span-1 md:col-span-1 flex flex-col justify-center items-center border-b-slate-500 border-2">
+          <Form onSubmit={onSubmitHandler} className="w-full" >
+            <div className="text-center mb-6">
+              <h1 className="text-5xl italic mb-50 text-left ml-110">LOG-IN</h1>
             </div>
-          </div>
-        </div>
-      </Form>
-    </div>
+            <div className="mb-4 flex justify-center">
+              <div className="w-full max-w-md">
+                <Input
+                  type="text"
+                  value={Email}
+                  onChange={onEmailHandler}
+                  placeholder="Id"
+                  className="bg-transparent w-full border-b-2 border-black-300 py-2 px-3 focus:outline-none focus:border-gray-400"
+                />
+              </div>
+            </div>
+            <div className="mb-6 flex justify-center">
+              <div className="w-full max-w-md">
+                <Input
+                  type="password"
+                  value={Password}
+                  onChange={onPasswordHandler}
+                  placeholder="PASSWORD"
+                  className="bg-transparent w-full border-b-2 border-black-300 py-2 px-3 focus:outline-none focus:border-gray-400"
+                />
+              </div>
+            </div>
+            <div className="flex justify-center items-center">
+              <div className="md:flex justify-between w-full max-w-md">
+                <div className="grid grid-cols-2 gap-4">
+                  <button
+                    type="submit"
+                    className="bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  >
+                    로그인
+                  </button>
+                  <button
+                    onClick={navigateToJoin}
+                    className="bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  >
+                    회원가입
+                  </button>
+                </div>
+              </div>
+            </div>
+          </Form>   
+    </div> 
+  <div><Footer /></div>
   </div>
-  
-  
-  
-    // <div className="grid-cols-1 rows-1 flex md:grid-cols-2 rows-2 border-slate-500 border-2 fixed">
-    //   <div className="col-span-1 w-2/3 ">
-    //   <img src={logo2}></img></div>
-    //   <div className='w-1/3 h-2/3 '>
-    //   <Form onSubmit={onSubmitHandler}>
-    //     <Div1>
-    //       <p className='italic text-4xl'>LOG-IN</p>
-    //       <Input type="text" value={Email} onChange={onEmailHandler} placeholder="Id" className='bg-transparent' />
-    //       <Input className='bg-transparent'
-    //         type="password"
-    //         value={Password}
-    //         onChange={onPasswordHandler}
-    //         placeholder="PASSWORD"
-    //       />
-    //       <div className='absolute bottom-30 flex space-x-200'>
-    //         <button type="submit">로그인</button>
-    //         <button onClick={navigateToJoin}>회원가입</button>
-    //       </div>
-    //     </Div1>
-    //   </Form>
-    //   </div>
-    //   </div>
-   
-/*
-<div class="grid grid-cols-2">
-  <div class="row-span-4 flex-1 ">
-  <img src={logo2} />
-  </div>
-  <div class="row-span-3 border-slate-800 border-1 grid justify-items-center flex-2 columns-1 gap-1" onsubmit={onSubmitHandler}>
-            <div class="text-5xl">Log-in</div>
-            <input class="bg-transparent w-1/2 h-45" type="text" value={Email} onChange={onEmailHandler} placeholder="Id" /> <br />
-            <input class="bg-transparent w-1/2 h-45" type="password" value={Password} onChange={onPasswordHandler} placeholder="PASSWORD"  />
-  </div>
-  <div class="border-slate-800 border-1 bg-gray-600 mt-150 flex-3"> 
-  <button class="mx-200" type="submit">로그인</button>
-  <button class="mx-200 text-2xl" onClick={navigateToJoin}>회원가입</button>
-  </div>
-</div> */
-
   );
 }
 export default Auth(Login, null);

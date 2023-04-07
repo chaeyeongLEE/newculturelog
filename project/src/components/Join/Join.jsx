@@ -7,46 +7,6 @@ import styled from 'styled-components';
 import Auth from '../../hoc/auth';
 import logo2 from '../../logo2.png'
 
-/*const Div2 = styled.div`
-  margin: auto;
-  width: 500px;
-  height: 570px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 0px;
-  @media screen and (max-width: 500px) {
-    width: 100% !important;
-  }
-  input {
-    width: 350px;
-    height: 40px;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-bottom: 1.5px solid black;
-    outline: none;
-    margin-bottom: 10px;
-    padding-left: 5px;
-  }
-  h1 {
-    font-weight: 700;
-    font-size: 40px;
-    color: #cecc7f;
-    margin-bottom: 25px;
-  }
-  button {
-    background-color: #cecc7f;
-    color: #ffffff;
-    border-color: #cecc7f;
-    border-radius: 4px;
-    margin-top: 20px;
-    width: 100px;
-    box-shadow: 0 2px 8px rgba(230, 115, 53, 0.25);
-    font-size: 17px;
-  }
-`;*/
 function Join() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -141,51 +101,7 @@ function Join() {
       });
   };
   return (
-   /* <div
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: '100%',
-        height: '80vh',
-        minHeight: '570px',
-      }}
-    >
-      <form onSubmit={onSubmitHandler}>
-        <Div2>
-          <h1>JOIN</h1>
-          <label style={{ fontSize: '1.5rem' }}>ID</label>
-          <input type="text" value={Email} onChange={onEmailHandler} />
-          {Email.length > 0 && (
-            <span style={{ fontSize: '0.9rem' }}>{EmailMessage}</span>
-          )}
-          <label style={{ marginTop: '15px', fontSize: '1.5rem' }}>
-            Password
-          </label>
-          <input
-            type="password"
-            value={Password}
-            onChange={onPasswordHandler}
-          />
-          {Password.length > 0 && (
-            <span style={{ fontSize: '0.9rem' }}>{PasswordMessage}</span>
-          )}
-          <label style={{ marginTop: '20px', fontSize: '1.5rem' }}>
-            Confirm Password
-          </label>
-          <input
-            type="password"
-            value={ConfirmPassword}
-            onChange={onConfirmPasswordHandler}
-          />
-          {ConfirmPassword.length > 0 && (
-            <span style={{ fontSize: '0.9rem' }}>{PasswordConfirmMessage}</span>
-          )}
-          {/* <br /> }
-          <button type="submit">회원가입</button>
-        </Div2>
-      </form>
-    </div>*/
+   
 <div class="grid grid-cols-2">
   <div class="row-span-4 flex-1">
     <img src={logo2} />
@@ -205,32 +121,6 @@ function Join() {
 
 
 
-//   <div class="grid grid-cols-2">
-//   <div class="row-span-4 flex-1 ">
-//   <img src={logo2} />
-//   </div>
-//   <div class="row-span-3 border-slate-800 border-1 grid justify-items-center flex-2">
-//           <input classname="border-slate-800 border-3"type="text" value={Email} onChange={onEmailHandler} placehorder="email" />
-//           {Email.length > 0 && (<div>{EmailMessage} </div>)}
-//           <input type="password" value={Password} onChange={onPasswordHandler} placehorder="pw" />
-//           {Password.length > 0 && (<div>{PasswordMessage}</div>)}
-//           <labe>
-//             Confirm Password
-//           </labe>
-//           <input
-//             type="password"
-//             value={ConfirmPassword}
-//             onChange={onConfirmPasswordHandler}
-//           />
-//           {ConfirmPassword.length > 0 && (
-//             <div>{PasswordConfirmMessage}</div>
-//           )}
-//           </div>
-//   <div class="border-slate-800 border-1 bg-gray-600 mt-150 flex-3"> 
-//   <button class="mx-200 my-30 text-2xl " type="submit"> Register </button>
-//   </div>
-// </div>
   );
 }
 export default Auth(Join, null);
-//<img src={logo2} />

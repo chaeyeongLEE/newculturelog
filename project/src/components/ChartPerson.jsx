@@ -52,6 +52,7 @@ export default function ChartPerson({
   }}
   style={{
     overflow: 'hidden',
+    width:'100%'
   }}
 >
           <CartesianGrid strokeDasharray="3 3" />

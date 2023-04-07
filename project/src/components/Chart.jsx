@@ -37,6 +37,7 @@ export default function Chart({ movie, book, perfo, innerWidth }) {
         bottom: 5,
       }}
       style={{
+        width:'100%',
         overflow: 'hidden',
       }}>
         <CartesianGrid strokeDasharray="3 3" />

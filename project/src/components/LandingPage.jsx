@@ -97,114 +97,49 @@ function LandingPage() {
   // console.log('innerWidth', innerWidth);
 
   return (
-    //<>
-    <div className='grid grid-cols-2 gap4'>
-      <div className='col-span-2'>
-      <img src={main1}></img>
+    <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+    <div className='md:col-span-2'>
+      <img src={main1} alt="메인 이미지" className='w-full'></img>
+    </div>
+    <div className='md:col-span-2'>
+      <div className='grid grid-cols-1 md:grid-cols-2'>
+        <div className='md:col-span-1 p-9 md:p-75'>
+          <SubTitleSpan>
+            <p className='text-28'> : 전체 사용자 문화 기록 현황</p> <br />
+            <p className=' text-18'>가입 유저들의 책, 영화, 공연 문화기록 현황이에요.<br />
+              'CultureLog'에서 문화기록을 함께 해보아요.</p>
+          </SubTitleSpan>
+        </div>
+        <div className='md:col-span-1 p-7 md:p-0'>
+          <Chart className='flex'
+            movie={movie}
+            book={book}
+            perfo={perfo}
+            innerWidth={innerWidth}
+          />
+        </div>
+        <div className='md:col-span-1 p-4 border-2 border-t-gray-300 border-r-gray-300'>
+          <p className='text-15 mx-5'>Project information</p><br />
+          <p className='text-15 mx-5'>
+            <a href="https://github.com/CultureBox/3rd_Project">
+              {/* <img src={githubLogo} style={{ width: '25px', margin: '5px' }} alt="github 주소" /> */}
+              Github
+            </a>
+            | <a href="https://burnt-bike-223.notion.site/Culture-Log-0416219a3d8d4b81925a4042e50e1716">
+              {/* <img src={notionLogo} style={{ width: '25px', margin: '5px' }} alt="notion 주소" /> */}
+              Notion
+            </a>
+          </p>
+        </div>
+        <div className='md:col-span-1 p-4 border-2 border-t-gray-300 border-r-gray-300'>
+          <p className='text-20 mx-5 mb-0'>Culture Log</p>
+          <p className='text-13 mx-5 mt-0'>: Cultural life will bring you a sense of relaxation like a sweet rain in your busy life. Record that leisure time and remember that moment of you</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
      
-      </div>
-      
-      <div className='grid-cols-1 p-900'>
-      <SubTitleSpan>
-      <p className='text-28'> : 전체 사용자 문화 기록 현황</p> <br />
-      <p className=' text-18'>가입 유저들의 책, 영화, 공연 문화기록 현황이에요.<br />
-      'CultureLog'에서 문화기록을 함께 해보아요.</p>
-      </SubTitleSpan>
-
-      </div>
-      <div className='grid-cols-1 p-70'>
-      <Chart className='flex' 
-              movie={movie} 
-              book={book}
-              perfo={perfo}
-              innerWidth={innerWidth}
-            />
-      </div>
-   
-      <div className='grid-cols-1 p-40 border-2 border-t-gray-300 border-r-gray-300' >
-      <p className='text-20 mx-50'>Project information</p><br />
-      <p className='text-20 mx-50 '>
-      <a href="https://github.com/CultureBox/3rd_Project">
-      {/* <img src={githubLogo} style={{ width: '25px', margin: '5px' }} alt="github 주소" /> */}
-      Github
-      </a>    
-         | <a href="https://burnt-bike-223.notion.site/Culture-Log-0416219a3d8d4b81925a4042e50e1716">
-     {/* <img src={notionLogo} style={{ width: '25px', margin: '5px' }} alt="notion 주소" /> */}
-      Notion
-      </a>
-      </p>
-
-      </div>
-      <div className='grid-cols-1 p-40 border-2 border-t-gray-300 border-r-gray-300'>
-      <p className='text-20 mx-50'>Culture Log</p><br />
-      <p className='text-15 mx-50'>:Cultural life will bring you a sense of relaxation like a sweet rain in your busy life. Record that leisure time and remember that moment of you</p>
-      </div>
-      </div>
-      // <Row style={{ width: '90%', height: '60vh', margin: 'auto' }}>
-      //   <Col
-      //     xs={12}
-      //     style={{ padding: '0px', display: 'flex', alignItems: 'center' }}
-      //   >
-      //     <TitleSpan>나만의 문화 기록, Culture Log</TitleSpan>
-      //   </Col>
-      //   <Col
-      //     xs={12}
-      //     style={{
-      //       padding: '0px',
-      //       display: 'flex',
-      //       alignItems: 'center',
-      //       justifyContent: 'center',
-      //     }}
-      //   >
-      //     {/* <div> */}
-      //     <ChartTitle>
-      //       <SubTitleSpan>전체 사용자 문화 기록 현황</SubTitleSpan>
-
-      //       <Chart
-      //         movie={movie}
-      //         book={book}
-      //         perfo={perfo}
-      //         innerWidth={innerWidth}
-      //       />
-      //     </ChartTitle>
-      //     {/* </div> */}
-      //   </Col>
-      //   <Col
-      //     xs={12}
-      //     style={{
-      //       padding: '0px',
-      //       borderColor: '#545d42',
-      //       borderBlockStyle: 'dashed',
-      //       display: 'flex',
-      //       alignItems: 'center',
-      //       justifyContent: 'center',
-      //       maxHeight: '150px',
-      //     }}
-      //   >
-      //     <span style={{ color: '#545d42', fontSize: '1rem', margin: '5px' }}>
-      //       github{' '}
-      //       <a href="https://github.com/CultureBox/3rd_Project">
-      //         <img
-      //           src={githubLogo}
-      //           style={{ width: '30px', margin: '5px' }}
-      //           alt="github 주소"
-      //         />
-      //       </a>
-      //     </span>
-      //     <span style={{ color: '#545d42', fontSize: '1rem', margin: '5px' }}>
-      //       Notion{' '}
-      //       <a href="https://burnt-bike-223.notion.site/Culture-Log-0416219a3d8d4b81925a4042e50e1716">
-      //         <img
-      //           src={notionLogo}
-      //           style={{ width: '30px', margin: '5px' }}
-      //           alt="notion 주소"
-      //         />
-      //       </a>
-      //     </span>
-      //     
-      //   </Col>
-      // </Row>
-  //  </>
   );
 }
 

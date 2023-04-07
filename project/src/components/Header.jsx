@@ -53,18 +53,25 @@ export default function Header() {
   return (
     <>
       <Nav>
-        <ul
-          style={{
-            display: 'flex',
-            justifyContent: 'space-around',
-          }}
-        >
-          <li>
-            <Link to="/">
-              <img src={logo} alt="로고" style={imgStyle}></img>
-            </Link>
-          </li>
-
+      <ul
+    style={{
+      display: 'flex',
+      justifyContent: 'flex-end', // 오른쪽 정렬
+      alignItems: 'center', // 수직 정렬
+      gap: '1rem', // 아이템 간의 간격
+      marginRight:'15px'
+    }}
+  >
+    <li style={{ marginRight: 'auto' }}>
+      {/* 로고 이미지 */}
+      <Link to="/" style={{ textDecoration: 'none' }}>
+        <img
+          src={logo}
+          alt="로고"
+          style={{ maxWidth: '200px', height: 'auto', marginBottom: '1rem', marginLeft:'30px', marginTop:'20px' }}
+        />
+      </Link>
+    </li>
           {/* 로그인 여부에 따라 나오는 버튼 구현 */}
           {cookies.get('x_auth') ? (
             <li className="Header_logout">
