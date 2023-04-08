@@ -115,3 +115,35 @@ hr {
   width: 100%;
 }
 
+.flex {
+  display: flex;
+}
+.text-slate-900 {
+  font-size: 25px;
+}
+
+/* 모바일 환경에서는 한 줄에 하나의 요소만 표시 */
+@media (max-width: 768px) {
+  .flex {
+   /* justify-content: center;
+    align-items: center; */
+  flex-wrap: wrap;
+  }
+  .z-0 {
+    margin-left: 40px;
+    margin-top: 10px;
+  }
+  .text-slate-900 {
+    font-size: 20px;
+  }
+  .text-slate-950{
+  margin-left: 37px;
+  font-size: 24px;
+  }
+ .text-slate-910{
+  width: 300px;
+ font-size: 15px;
+ margin-left: -18px;
+ }
+ 
+}

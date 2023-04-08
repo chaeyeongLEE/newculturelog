@@ -118,21 +118,19 @@ function LandingPage() {
             innerWidth={innerWidth}
           />
         </div>
-        <div className='md:col-span-1 p-4 border-2 border-t-gray-300 border-r-gray-300'>
-          <p className='text-15 mx-5'>Project information</p><br />
+        <div className='md:col-span-1 p-4 border-2 border-t-gray-500 border-r-gray-500'>
+          <p className='text-15 mx-5 font-bold'>Project information</p><br />
           <p className='text-15 mx-5'>
             <a href="https://github.com/CultureBox/3rd_Project">
-              {/* <img src={githubLogo} style={{ width: '25px', margin: '5px' }} alt="github 주소" /> */}
               Github
             </a>
             | <a href="https://burnt-bike-223.notion.site/Culture-Log-0416219a3d8d4b81925a4042e50e1716">
-              {/* <img src={notionLogo} style={{ width: '25px', margin: '5px' }} alt="notion 주소" /> */}
               Notion
             </a>
           </p>
         </div>
-        <div className='md:col-span-1 p-4 border-2 border-t-gray-300 border-r-gray-300'>
-          <p className='text-20 mx-5 mb-0'>Culture Log</p>
+        <div className='md:col-span-1 p-4 border-2 border-t-gray-500 border-r-gray-500'>
+          <p className='text-20 mx-5 mb-0 font-bold'>Culture Log</p>
           <p className='text-13 mx-5 mt-0'>: Cultural life will bring you a sense of relaxation like a sweet rain in your busy life. Record that leisure time and remember that moment of you</p>
         </div>
       </div>

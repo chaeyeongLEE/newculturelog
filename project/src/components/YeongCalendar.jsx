@@ -202,9 +202,9 @@ export default function YeongCalendar(props) {
       {modalShow && (
         <Pop show={modalShow} date={value} onHide={() => setModalShow(false)} />
       )}
-      <div>
+      <div className='border-l-1 border-slate-500'>
         <Div5>
-          <div className='text-xl my-30'> 안녕하세요:) 단비같은 여유와 함께 어떤 문화생활을 하셨나요?Culture Log 와 오늘도 지영님의 기록을 함께해요:) </div>
+          <div className='text-xl my-30 '> 안녕하세요:) 단비같은 여유와 함께 어떤 문화생활을 하셨나요?Culture Log 와 오늘도 지영님의 기록을 함께해요:) </div>
           <span>
             <Modal
               show={selectPerformance !== null}
