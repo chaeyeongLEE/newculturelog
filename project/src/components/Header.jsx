@@ -104,6 +104,7 @@ export default function Header() {
             </li>
           )}
         </ul>
+        <hr style={{marginTop:'5px' , marginBottom:'-10px'}}/>
       </Nav>
     </>
   );

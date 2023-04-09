@@ -21,9 +21,6 @@ import Blogo from '../Blogo.png'
 import Mlogo from '../Mlogo.png'
 import Plogo from '../Plogo.png'
 
-
-
-
 // Main Page
 function Home() {
   const navigate = useNavigate();
