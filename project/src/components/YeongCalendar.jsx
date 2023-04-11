@@ -56,7 +56,7 @@ export default function YeongCalendar(props) {
   //const marks = data.map((item) => new Date(item.date));
   // console.log('내가선택한날짜', value); // 내가 선택한 날짜
   const user = useSelector((state) => state.user.loginSuccess);
-
+  const useremail = useSelector((state)=> state.user.userData.email);
   const handleDayClick = (value, event) => {
     //console.log('user', user);
     //현재 클릭한 날짜
@@ -204,7 +204,7 @@ export default function YeongCalendar(props) {
       )}
       <div className='border-l-1 border-slate-500'>
         <Div5>
-          <div className='text-xl my-30 '> 안녕하세요:) 단비같은 여유와 함께 어떤 문화생활을 하셨나요?Culture Log 와 오늘도 지영님의 기록을 함께해요:) </div>
+          <div className='text-xl my-30 '> 안녕하세요. 단비같은 여유와 함께 어떤 문화생활을 하셨나요? <br />Culture Log 와 오늘도 {useremail}님의 기록을 함께해요! </div>
           <span>
             <Modal
               show={selectPerformance !== null}
