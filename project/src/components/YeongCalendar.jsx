@@ -42,7 +42,6 @@ export default function YeongCalendar(props) {
   const [selectMovie, setSelectMovie] = useState(null);
   const handleMovieClose = () => setSelectMovie(null);
   const navigate = useNavigate();
-
   const [marks, setMarks] = useState([]);
   const [markData, setMarkData] = useState();
   // const [marks, setMarks] = useState(['2023년 02월 21일']);
@@ -56,7 +55,8 @@ export default function YeongCalendar(props) {
   //const marks = data.map((item) => new Date(item.date));
   // console.log('내가선택한날짜', value); // 내가 선택한 날짜
   const user = useSelector((state) => state.user.loginSuccess);
-  const useremail = useSelector((state)=> state.user.userData.email);
+  console.log(user);
+  const useremail = useSelector((state)=> state.user?.userData?.email);
   const handleDayClick = (value, event) => {
     //console.log('user', user);
     //현재 클릭한 날짜
@@ -174,7 +174,7 @@ export default function YeongCalendar(props) {
           // console.log('tempDotData', tempDotData);
           if (tempDotData) {
             if (markData[tempDotData].book) {
-              tempTileContent.push(
+              tempTileContent.push( 
                 <div className="dot dotBook" key={'dotBook'}></div>
               );
             }

@@ -2,8 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Auth from '../../src/hoc/auth';
 import styled from 'styled-components';
-import Star from './Star';
-import examImg from '../book.png';
+import examImg from '../Book.png';
 import { callBookAPI } from '../actions/logdata_action';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
@@ -115,18 +114,13 @@ function Book() {
   {open === true ? (
     <Div8 className={searchClass}>
       {clientTitle.length < 1
-        ? '책을 찾을 수 없습니다'
-        : clientTitle.map((el, index) => (
-            <p
-              key={index}
-              // key={el.img}
-              className={index}
-              dangerouslySetInnerHTML={{
-                __html: `${el.title},${el.author},${el.publisher}`,
-              }}
-              onClick={titleconfirm}
-            ></p>
-          ))}
+  ? '책을 찾을 수 없습니다'
+  : clientTitle.map((el, index) => (
+      <p key={index} className={index} onClick={titleconfirm}>
+        {`${el.title},${el.author},${el.publisher}`}
+        <hr style={{marginTop:'20px'}}/>
+      </p>
+    ))}
     </Div8>
   ) : null}
 <div style={{ position: 'relative' }}>
@@ -144,7 +138,6 @@ function Book() {
 <div style={{ position: 'relative' }}>
   <Label
     htmlFor="titleNyear"
-   
   >
     Title.
   </Label>
