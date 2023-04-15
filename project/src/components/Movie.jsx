@@ -27,7 +27,6 @@ function Movie(props) {
   const actor = useRef();
   const review = useRef();
   const P = useSelector((state) => state.date.date);
-
   useEffect(() => {
     if (logDate.current.value === 'Invalid date') {
       alert('잘못된 접근입니다');
@@ -38,12 +37,9 @@ function Movie(props) {
       navigate('/');
     }
   }, []);
-
   const onKeyPress = (e) => {
-    // eslint-disable-next-line eqeqeq
     if (e.key == 'Enter') search();
   };
-
   const search = async () => {
     if (movieSearch.current.value === '') alert('검색어를 입력하세요');
     else {
@@ -58,10 +54,8 @@ function Movie(props) {
     }
     // dispatch를 실행할 때는 action을 보내야 한다. action은 객체형태 즉, {} 형태여야 한다.
   };
-
   function titleconfirm(e) {
     let movieform = clientTitle[e.target.className];
-    setSearchClass('d-none');
     let title = e.target.innerText.split(',');
     console.log(movieform);
     if (title.length > 3) {
@@ -69,13 +63,13 @@ function Movie(props) {
     } else {
       titleNyear.current.value = `${title[0]}(${title[1]})`;
     }
+    setSearchClass('d-none');
     director.current.value = movieform.director;
     actor.current.value = movieform.actor;
     setImgsrc(movieform.img);
   }
-
   const user = useSelector((state) => state.user.loginSuccess);
-  function submit() {
+  const submit= () => {
     if (
       titleNyear.current.value === '' ||
       actor.current.value === '' ||
@@ -367,7 +361,7 @@ function Movie(props) {
           margin-left:150px;
           margin-top: 10px;
           font-size:small;
-        }ㄴ
+        }
       `;
       
       const Label = styled.label`
