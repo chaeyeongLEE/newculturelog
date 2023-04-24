@@ -75,7 +75,11 @@ export default function YeongCalendar(props) {
       setModalShow(!modalShow);
     });
   };
-
+  const goToAnotherPage = () => {
+    setSelectPerformance(null);
+    // 다른 페이지로 이동하는 코드 작성
+  }
+  
   // 마크가져오기
   useEffect(() => {
     if (user.userId) {
@@ -213,7 +217,138 @@ export default function YeongCalendar(props) {
       <div className='border-l-1 border-slate-500'>
         <Div5>
           {checkData() ? <div></div> :<div className='text-xl my-30 '> 안녕하세요. 단비같은 여유와 함께 어떤 문화생활을 하셨나요? <br />Culture Log 와 오늘도 {useremail}님의 기록을 함께해요! </div>}
-         {/* {selectPerformance !== null && (
+          <Modal
+              show={selectPerformance !== null}
+              onHide={handlePerformanceClose}
+            >
+              <Modal.Header closeButton>
+                <Modal.Title>Performance Record</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+              <div style={{ borderBottom: '1px solid black',
+                            padding: '10px',
+                            paddingTop: '15px', 
+                            paddingBottom:'10px'}}>
+                ■ Title. {' '}
+                {selectPerformance !== null
+                  ? selectPerformance.title !== null
+                    ? selectPerformance.title
+                    : ''
+                  : ''}{' '}
+                <br />
+                
+                </div>
+                <div style={{ borderBottom: '1px solid black',
+                            padding: '10px',
+                            paddingTop: '15px', 
+                            paddingBottom:'10px'}}>
+                ■ Hall. {' '}
+                {selectPerformance !== null
+                  ? selectPerformance.hall !== null
+                    ? selectPerformance.hall
+                    : ''
+                  : ''}
+                <br />
+                </div>
+                <div style={{ borderBottom: '1px solid black',
+                            padding: '10px',
+                            paddingTop: '15px', 
+                            paddingBottom:'10px'}}>
+                ■ Actor.
+                {selectPerformance !== null
+                  ? selectPerformance.mainroll !== null
+                    ? selectPerformance.mainroll
+                    : ''
+                  : ''}
+                <br /> </div>
+                <div style={{ borderBottom: '0px solid black',
+                            padding: '10px',
+                            paddingTop: '15px', 
+                            paddingBottom:'10px'}}>
+                ■ Review.
+                {selectPerformance !== null
+                  ? selectPerformance.review !== null
+                    ? selectPerformance.review
+                    : ''
+                  : ''}
+                </div>
+              </Modal.Body>
+              <Modal.Footer>
+                <Button
+                  style={{
+                    backgroundColor: 'rgb(171, 131, 131)',
+                    borderColor: 'white',
+                  }}
+                  onClick={() => {
+                    deleteLog(selectPerformance, '공연');
+                  }}
+                >
+                  기록 삭제
+                </Button>
+                <Button
+                  style={{
+                    backgroundColor: 'rgb(204, 193, 193)',
+                    borderColor: 'white',
+                  }}
+                  onClick={handlePerformanceClose}
+                >
+                  창닫기
+                </Button>
+              </Modal.Footer>
+            </Modal>
+          {data.some((arr) => arr.length > 0) && (
+          <div className='text-2xl ml-40 mb-30' style={{
+            borderBottom: '1px solid black', // 검은 줄 스타일 적용
+            marginBottom: '20px',
+            marginRight:'100px',
+            clear: 'both',
+        }}> Record of the Day</div> )}
+            {data.length > 0 ? (
+              data[0].map((el, index) => {
+                // console.log('el', el);
+                return (
+                  <div className='flex ' key={index} style={{
+                    borderBottom: '1px solid black', // 검은 줄 스타일 적용
+                    marginBottom: '20px',
+                    marginLeft:'40px', 
+                    clear: 'both',
+                    marginRight:'100px'}}>
+                  <div className='w-1/3'>
+                   <img src={Plogo} style={{ width: '60%', height: 'auto'}} /></div>
+                  <div className='w-2/3'>
+                    Title. {el.title}
+                  <br /> <br /> Hall. {el.hall}</div>
+                    <Button
+                      style={{
+                          marginLeft: 'auto',
+                          marginTop: '100px',
+                          marginBottom: '20px',
+                          borderRadius: '50%',
+                          width: '180px',
+                          backgroundColor: 'none',
+                          color: 'black',
+                          borderColor: 'black',
+                          display: 'inline-flex',
+                          justifyContent:'center',
+                          float: 'right',
+                          
+                      }}
+                      onClick={() => {
+                        setSelectPerformance(el);
+                      }}
+                      className='hover:bg-gray-500 text-gray-800'
+                    >
+                      Detail
+                    </Button>
+                  </div>
+                );
+              })
+            ) : (
+              <div></div>
+            )} 
+            
+            
+             {/* {selectPerformance !== null && (
         <div className='text-xl'>
           <h1>기록 상세보기</h1>
           <p>제목 :{' '}
@@ -249,96 +384,7 @@ export default function YeongCalendar(props) {
       기록 삭제
     </button>
 </div>)} */}
-          <span> 
-          {data.length > 0 && (
-          <div className='text-2xl ml-40 mb-30' style={{
-            borderBottom: '1px solid black', // 검은 줄 스타일 적용
-            marginBottom: '20px',
-            marginRight:'100px',
-            clear: 'both',
-        }}> Record of the Day</div> )}
-            {data.length > 0 ? (
-              data[0].map((el, index) => {
-                // console.log('el', el);
-                return (
-                  <div className='flex ' key={index} style={{
-                    borderBottom: '1px solid black', // 검은 줄 스타일 적용
-                    marginBottom: '20px',
-                    marginLeft:'40px', 
-                    clear: 'both',
-                    marginRight:'100px'}}>
-                  <div className='w-1/3'>
-                   <img src={Plogo} style={{ width: '60%', height: 'auto'}} /></div>
-                  <div className='w-2/3'>
-                    Title. {el.title}
-                  <br /> Hall. {el.hall}</div>
-                    <Button
-                      style={{
-                          marginLeft: 'auto',
-                          marginTop: '100px',
-                          marginBottom: '20px',
-                          borderRadius: '50%',
-                          width: '180px',
-                          backgroundColor: 'none',
-                          color: 'black',
-                          borderColor: 'black',
-                          display: 'inline-flex',
-                          float: 'right',
-                      }}
-                      onClick={() => {
-                        setSelectPerformance(el);
-                      }}
-                    >
-                      Detail
-                    </Button>
-                  </div>
-                );
-              })
-            ) : (
-              <div></div>
-            )} 
-            
-            
-             {selectPerformance !== null && (
-        <div className='text-xl'>
-          <h1>기록 상세보기</h1>
-          <p>제목 :{' '}
-                  {selectPerformance !== null
-                    ? selectPerformance.title !== null
-                      ? selectPerformance.title
-                      : ''
-                    : ''}{' '}
-                  <br />
-                  <br /></p>
-                  <p>극장 :
-                  {selectPerformance !== null
-                    ? selectPerformance.hall !== null
-                      ? selectPerformance.hall
-                      : ''
-                    : ''}
-                  <br />
-                  <br /></p>
-                  <p>🎤 배우 :
-                  {selectPerformance !== null
-                    ? selectPerformance.mainroll !== null
-                      ? selectPerformance.mainroll
-                      : ''
-                    : ''}
-                  <br /> <br /></p>
-                  <p>💭 후기 :
-                  {selectPerformance !== null
-                    ? selectPerformance.review !== null
-                      ? selectPerformance.review
-                      : ''
-                    : ''}</p>
-<button onClick={() => deleteLog(selectPerformance, '공연')}>
-      기록 삭제
-    </button>
-</div>)}
-          </span>
-
-
-
+        
           <span>
             <Modal show={selectBook !== null} onHide={handleBookClose}>
               <Modal.Header closeButton>
