@@ -18,7 +18,7 @@ import Plogo from '../Plogo.png'
 
 const Div5 = styled.div`
   margin-left: 10px;
-  margin-top: 150px;
+  margin-top: 10px;
 `;
 
 const Div7 = styled.div`
@@ -209,18 +209,92 @@ export default function YeongCalendar(props) {
               </>
             );
           }
-        }}
-      />
+        }} />
       {modalShow && (
         <Pop show={modalShow} date={value} onHide={() => setModalShow(false)} />
       )}
       <div className='border-l-1 border-slate-500'>
         <Div5>
-          {checkData() ? <div></div> :<div className='text-xl my-30 '> 안녕하세요. 단비같은 여유와 함께 어떤 문화생활을 하셨나요? <br />Culture Log 와 오늘도 {useremail}님의 기록을 함께해요! </div>}
-          <Modal
-              show={selectPerformance !== null}
-              onHide={handlePerformanceClose}
-            >
+          {checkData() ? <div></div> :<div className='text-xl my-30 mt-200 ml-80'> 안녕하세요. 단비같은 여유와 함께 어떤 문화생활을 하셨나요? <br />Culture Log 와 오늘도 {useremail}님의 기록을 함께해요! </div>}
+          
+            {data.some((arr) => arr.length > 0) && (
+          <div className='text-2xl ml-40 mb-30' style={{
+            borderBottom: '1px solid black', // 검은 줄 스타일 적용
+            marginBottom: '20px',
+            marginRight:'100px',
+            clear: 'both',
+          }}> Record of the Day</div>
+        )}
+
+{data.map((arr, idx) => {
+  return arr.length > 0 && (
+    <div className='flex' key={idx} style={{
+      borderBottom: '1px solid black', // 검은 줄 스타일 적용
+      marginBottom: '20px',
+      marginLeft:'40px', 
+      clear: 'both',
+      marginRight:'100px',
+    }}>
+      <div className='w-1/3'>
+        <img src={idx === 0 ? Plogo : idx === 1 ? Blogo : Mlogo} style={{ width: '40%', height: 'auto'}}/>
+        
+      </div>
+      <div className='w-2/3'>
+        {idx === 0 && (
+          <>
+            Title. {arr[0].title}
+            <br /><br />
+            Hall. {arr[0].hall}
+          </>
+        )}
+        
+        {idx === 1 && (
+          <>
+            Title. {arr[0].title}
+            <br /><br />
+            Author. {arr[0].author}
+          </>
+        )}
+        {idx === 2 && (
+          <>
+            Title. {arr[0].title}
+            <br /><br />
+            director. {arr[0].director}
+          </>
+        )}
+        <Button
+          style={{
+            marginLeft: 'auto',
+            marginTop: '50px',
+            marginBottom: '20px',
+            borderRadius: '50%',
+            width: '180px',
+            backgroundColor: 'none',
+            color: 'black',
+            borderColor: 'black',
+            display: 'inline-flex',
+            justifyContent:'center',
+            float: 'right',
+          }}
+          onClick={() => {
+            if (idx === 0) {
+              setSelectPerformance(arr[0]);
+            } else if (idx === 1) {
+              setSelectBook(arr[0]);
+            } else {
+              setSelectMovie(arr[0]);
+            }
+          }}
+          className='hover:bg-gray-500 text-gray-800'
+        >
+          Detail
+        </Button>
+      </div>
+    </div>
+  );
+})}
+          
+          <span><Modal show={selectPerformance !== null} onHide={handlePerformanceClose}>
               <Modal.Header closeButton>
                 <Modal.Title>Performance Record</Modal.Title>
               </Modal.Header>
@@ -296,128 +370,56 @@ export default function YeongCalendar(props) {
                 </Button>
               </Modal.Footer>
             </Modal>
-          {data.some((arr) => arr.length > 0) && (
-          <div className='text-2xl ml-40 mb-30' style={{
-            borderBottom: '1px solid black', // 검은 줄 스타일 적용
-            marginBottom: '20px',
-            marginRight:'100px',
-            clear: 'both',
-        }}> Record of the Day</div> )}
-            {data.length > 0 ? (
-              data[0].map((el, index) => {
-                // console.log('el', el);
-                return (
-                  <div className='flex ' key={index} style={{
-                    borderBottom: '1px solid black', // 검은 줄 스타일 적용
-                    marginBottom: '20px',
-                    marginLeft:'40px', 
-                    clear: 'both',
-                    marginRight:'100px'}}>
-                  <div className='w-1/3'>
-                   <img src={Plogo} style={{ width: '60%', height: 'auto'}} /></div>
-                  <div className='w-2/3'>
-                    Title. {el.title}
-                  <br /> <br /> Hall. {el.hall}</div>
-                    <Button
-                      style={{
-                          marginLeft: 'auto',
-                          marginTop: '100px',
-                          marginBottom: '20px',
-                          borderRadius: '50%',
-                          width: '180px',
-                          backgroundColor: 'none',
-                          color: 'black',
-                          borderColor: 'black',
-                          display: 'inline-flex',
-                          justifyContent:'center',
-                          float: 'right',
-                          
-                      }}
-                      onClick={() => {
-                        setSelectPerformance(el);
-                      }}
-                      className='hover:bg-gray-500 text-gray-800'
-                    >
-                      Detail
-                    </Button>
-                  </div>
-                );
-              })
-            ) : (
-              <div></div>
-            )} 
-            
-            
-             {/* {selectPerformance !== null && (
-        <div className='text-xl'>
-          <h1>기록 상세보기</h1>
-          <p>제목 :{' '}
-                  {selectPerformance !== null
-                    ? selectPerformance.title !== null
-                      ? selectPerformance.title
-                      : ''
-                    : ''}{' '}
-                  <br />
-                  <br /></p>
-                  <p>극장 :
-                  {selectPerformance !== null
-                    ? selectPerformance.hall !== null
-                      ? selectPerformance.hall
-                      : ''
-                    : ''}
-                  <br />
-                  <br /></p>
-                  <p>🎤 배우 :
-                  {selectPerformance !== null
-                    ? selectPerformance.mainroll !== null
-                      ? selectPerformance.mainroll
-                      : ''
-                    : ''}
-                  <br /> <br /></p>
-                  <p>💭 후기 :
-                  {selectPerformance !== null
-                    ? selectPerformance.review !== null
-                      ? selectPerformance.review
-                      : ''
-                    : ''}</p>
-<button onClick={() => deleteLog(selectPerformance, '공연')}>
-      기록 삭제
-    </button>
-</div>)} */}
-        
+          </span>
           <span>
             <Modal show={selectBook !== null} onHide={handleBookClose}>
               <Modal.Header closeButton>
                 <Modal.Title>기록 상세보기</Modal.Title>
               </Modal.Header>
               <Modal.Body>
-                📚 제목 :{' '}
+              <div style={{ borderBottom: '1px solid black',
+                            padding: '10px',
+                            paddingTop: '15px', 
+                            paddingBottom:'10px'}}>
+                ■ Title. {' '}
                 {selectBook !== null
                   ? selectBook.title !== null
                     ? selectBook.title
                     : ''
                   : ''}
-                <br /> <br />
-                📝 저자 :{' '}
+                <br /> </div>
+                <div style={{ borderBottom: '1px solid black',
+                            padding: '10px',
+                            paddingTop: '15px', 
+                            paddingBottom:'10px'}}>
+                ■ Author. {' '}
                 {selectBook !== null
                   ? selectBook.author !== null
                     ? selectBook.author
                     : ''
                   : ''}
-                <br /> <br />
-                📖 장르 :{' '}
+                <br /> </div>
+                <div style={{ borderBottom: '1px solid black',
+                            padding: '10px',
+                            paddingTop: '15px', 
+                            paddingBottom:'10px'}}>
+                ■ Genre. {' '}
                 {selectBook !== null
                   ? selectBook.genre !== null
                     ? selectBook.genre
                     : ''
                   : ''}
-                <br /> <br />
-                💭 후기 :{' '}
+                <br /> </div>
+                <div style={{ borderBottom: 'none',
+                            padding: '10px',
+                            paddingTop: '15px', 
+                            paddingBottom:'10px'}}>
+                ■ Review. {' '}
                 {selectBook !== null
                   ? selectBook.review !== null
                     ? selectBook.review
                     : ''
-                  : ''}
+                  : ''}</div>
               </Modal.Body>
               <Modal.Footer>
                 <Button
@@ -442,35 +444,6 @@ export default function YeongCalendar(props) {
                 </Button>
               </Modal.Footer>
             </Modal>
-            {data.length > 0 ? (
-              data[1].map((el, index) => {
-                return (
-                  <div key={index}>
-                    <h3> 📚 책</h3>
-                    제목 :{el.title}
-                    <br />
-                    저자: {el.author}
-                    <Button
-                      style={{
-                        marginLeft: 'auto',
-                        backgroundColor: 'rgb(204, 193, 193)',
-                        borderColor: 'white',
-                        display: 'inline-flex',
-                        float: 'right',
-                      }}
-                      onClick={() => {
-                        setSelectBook(el);
-                      }}
-                    >
-                      상세보기
-                    </Button>
-                    <hr style={{ marginTop: '30px' }} />
-                  </div>
-                );
-              })
-            ) : (
-              <div></div>
-            )}
           </span>
           <span>
             <Modal show={selectMovie !== null} onHide={handleMovieClose}>
@@ -478,33 +451,49 @@ export default function YeongCalendar(props) {
                 <Modal.Title>기록 상세보기</Modal.Title>
               </Modal.Header>
               <Modal.Body>
-                🎞️ 제목 :{' '}
+              <div style={{ borderBottom: '1px solid black',
+                            padding: '10px',
+                            paddingTop: '15px', 
+                            paddingBottom:'10px'}}>
+                ■ Title. {' '}
                 {selectMovie !== null
                   ? selectMovie.title !== null
                     ? selectMovie.title
                     : ''
                   : ''}
-                <br /> <br />
-                🎬 감독 :{' '}
+                <br /> </div>
+                <div style={{ borderBottom: '1px solid black',
+                            padding: '10px',
+                            paddingTop: '15px', 
+                            paddingBottom:'10px'}}>
+                ■ Director. {' '}
                 {selectMovie !== null
                   ? selectMovie.director !== null
                     ? selectMovie.director
                     : ''
                   : ''}
-                <br /> <br />
-                💃🏻 배우 :{' '}
+                <br /> </div>
+                <div style={{ borderBottom: '1px solid black',
+                            padding: '10px',
+                            paddingTop: '15px', 
+                            paddingBottom:'10px'}}>
+                ■ Actor. {' '}
                 {selectMovie !== null
                   ? selectMovie.actor !== null
                     ? selectMovie.actor
                     : ''
                   : ''}{' '}
-                <br /> <br />
-                💭 후기 :{' '}
+                <br /> </div>
+                <div style={{ borderBottom: 'none',
+                            padding: '10px',
+                            paddingTop: '15px', 
+                            paddingBottom:'10px'}}>
+                ■ Review. {' '}
                 {selectMovie !== null
                   ? selectMovie.review !== null
                     ? selectMovie.review
                     : ''
-                  : ''}
+                  : ''}</div>
               </Modal.Body>
               <Modal.Footer>
                 <Button
@@ -530,34 +519,6 @@ export default function YeongCalendar(props) {
                 {/* <Button variant="primary" onClick={handleMovieClose}>Save Changes</Button> */}
               </Modal.Footer>
             </Modal>
-            {data.length > 0 ? (
-              data[2].map((el, index) => {
-                return (
-                  <div key={index}>
-                    <h3> 🎬 영화</h3>
-                    제목 : {el.title} <br />
-                    감독 : {el.director}
-                    <Button
-                      style={{
-                        marginLeft: 'auto',
-                        backgroundColor: 'rgb(204, 193, 193)',
-                        borderColor: 'white',
-                        display: 'inline-flex',
-                        float: 'right',
-                      }}
-                      onClick={() => {
-                        setSelectMovie(el);
-                      }}
-                    >
-                      상세보기
-                    </Button>
-                    <hr style={{ marginTop: '30px' }} />
-                  </div>
-                );
-              })
-            ) : (
-              <div></div>
-            )}
           </span>
         </Div5>
       </div>
