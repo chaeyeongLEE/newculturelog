@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Auth from '../../src/hoc/auth';
 
-
-import githubLogo from '../github.png';
-import notionLogo from '../notion.png';
 import { Link } from 'react-router-dom';
 import { logoutUser } from '../actions/user_action';
 import axios from 'axios';
@@ -34,22 +31,10 @@ const TitleSpan = styled.span`
 const SubTitleSpan = styled.span`
   color: #545d42;
   margin-left:50px;
-  //margin-right: '20px';
   @media screen and (max-width: 550px) {
     margin-left: 10px !important;
   }
 `;
-
-// const Chart = styled.div`
-// padding: '0px';
-// display: flex;
-// align-items: center;
-// justify-content: center;
-//  @media screen and (max-width: 750px) {
-//     text-align: center;
-//   }
-// `;
-
 
 function LandingPage() {
   const navigate = useNavigate();

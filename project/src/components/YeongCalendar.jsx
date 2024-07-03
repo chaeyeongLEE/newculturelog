@@ -75,11 +75,7 @@ export default function YeongCalendar(props) {
       setModalShow(!modalShow);
     });
   };
-  const goToAnotherPage = () => {
-    setSelectPerformance(null);
-    // 다른 페이지로 이동하는 코드 작성
-  }
-  
+ 
   // 마크가져오기
   useEffect(() => {
     if (user.userId) {
